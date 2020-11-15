@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>matlab实现图片插值缩放 | 黄珣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="很久没更新博客了，这段时间没空刷leetcode题，在做实验室的课题，随便帮老师做一些杂事，前几天便涉及到了一个用插值法来做缩放图片的小任务，帮老师解决了下，同时也学到了一些图片缩放的知识，便想着把学到的东西记录下来供日后回顾。 图片缩放图片缩放，分为图片缩小和图片放大。众所周知，图片是由一个个的像素点构成的，分辨率越高的图，像素点越多。有时根据不同的需求，我们需要将图片放大或者缩小。那么如何实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matlab实现图片插值缩放">
+<meta property="og:url" content="http://example.com/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/index.html">
+<meta property="og:site_name" content="黄珣的博客">
+<meta property="og:description" content="很久没更新博客了，这段时间没空刷leetcode题，在做实验室的课题，随便帮老师做一些杂事，前几天便涉及到了一个用插值法来做缩放图片的小任务，帮老师解决了下，同时也学到了一些图片缩放的知识，便想着把学到的东西记录下来供日后回顾。 图片缩放图片缩放，分为图片缩小和图片放大。众所周知，图片是由一个个的像素点构成的，分辨率越高的图，像素点越多。有时根据不同的需求，我们需要将图片放大或者缩小。那么如何实现">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/%E2%80%AAC:/Users/HuangXun/Desktop/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201115215519.png">
+<meta property="article:published_time" content="2020-11-15T13:13:46.000Z">
+<meta property="article:modified_time" content="2020-11-15T14:00:36.513Z">
+<meta property="article:author" content="HuangXun">
+<meta property="article:tag" content="matlab 图片 插值">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/%E2%80%AAC:/Users/HuangXun/Desktop/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201115215519.png">
+  
+    <link rel="alternate" href="/atom.xml" title="黄珣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">黄珣的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-matlab实现图片插值缩放" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/" class="article-date">
+  <time datetime="2020-11-15T13:13:46.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      matlab实现图片插值缩放
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很久没更新博客了，这段时间没空刷leetcode题，在做实验室的课题，随便帮老师做一些杂事，前几天便涉及到了一个用插值法来做缩放图片的小任务，帮老师解决了下，同时也学到了一些图片缩放的知识，便想着把学到的东西记录下来供日后回顾。</p>
+<h2 id="图片缩放"><a href="#图片缩放" class="headerlink" title="图片缩放"></a>图片缩放</h2><p>图片缩放，分为图片缩小和图片放大。众所周知，图片是由一个个的像素点构成的，分辨率越高的图，像素点越多。有时根据不同的需求，我们需要将图片放大或者缩小。那么如何实现呢？很简单，对于缩小图片而言，我们少取一些像素点，所构成的图像素点变少，不就把图片变小了嘛；同理，对于放大图片，我们把空缺的地方补上像素点，得到的图就是放大后的图了。因此，采样法与插值法都是专注于如何取像素点与补像素点。我看到网上有博客说图片缩小称为降采样，放大则称为升采样或者插值。我个人觉得这是不准确的，因为插值法可以用来图片放大，也可以用来缩小图片；同样采样法不光能用在图片缩小，也能用在图片放大（虽然我没找到采样法放大图的具体方法）。</p>
+<h3 id="降采样缩小图片"><a href="#降采样缩小图片" class="headerlink" title="降采样缩小图片"></a>降采样缩小图片</h3><p>网上有降采样的例子，我就直接摘抄代码了，思想其实就是间隔若干行/列来取像素点。以一幅16<em>16的图片为例，有16</em>16=256个像素点，我们可以采用每行隔一个像素点后取值，再每隔一行继续取，即取(1,1),(1,3),…(1,255),(3,1),(3,3)…，将其组合后，就得到8*8=64的图片了，这即是缩小两倍的降采样图。</p>
+<p>代码实现：</p>
+<pre><code>I=imread(&#39;example.jpg&#39;);
+I1=I(1:2:end,1:2:end);%每2位采集1位
+I2=I(1:4:end,1:4:end);%每4位采集1位
+I3=I(1:8:end,1:8:end);%每8位采集1位
+subplot(221), imshow(I),title(&#39;原图&#39;);    
+subplot(222), imshow(I1),title(&#39;缩小2倍&#39;);    
+subplot(223), imshow(I2),title(&#39;缩小4倍&#39;);
+subplot(224), imshow(I3),title(&#39;缩小8倍&#39;);</code></pre>
+<h3 id="插值法放大-缩小图片"><a href="#插值法放大-缩小图片" class="headerlink" title="插值法放大/缩小图片"></a>插值法放大/缩小图片</h3><p>插值法的思想是基于目标(想要放大/缩小的图)分辨率中的像素点，按照缩放关系映射到原图片中，寻找原图中的像素点，然后通过原图中的像素点进行插值，找到目标图中要放入的点位置，将像素点填入。常见的图像插值算法包括最近邻插值（Nearest-neighbor）、双线性插值（Bilinear）、双立方插值（bicubic），这三种插值方法metlab都有集成，我就直接贴代码了。</p>
+<p>代码实现：</p>
+<pre><code>I=imread(&#39;example.jpg&#39;);
+I1=imresize(I1,2,&#39;nearest&#39;);%最近邻插值放大2倍
+I2=imresize(I1,2,&#39;bilinear&#39;);%双线性插值放大2倍
+I3=imresize(I1,2,&#39;bicubic&#39;);%双立方插值放大2倍
+subplot(221), imshow(I),title(&#39;原图&#39;);    
+subplot(222), imshow(I1),title(&#39;最近邻插值&#39;);    
+subplot(223), imshow(I2),title(&#39;双线性插值&#39;);
+subplot(224), imshow(I3),title(&#39;双立方插值&#39;);</code></pre>
+<h3 id="总结：一些疑问"><a href="#总结：一些疑问" class="headerlink" title="总结：一些疑问"></a>总结：一些疑问</h3><p>如何比较插值或者采样的好坏呢？我看到一篇文献里比较不同插值缩放图片的步骤里，效果图里，目标图与原图是比例一致，大小相同的，我很好奇这样是怎么做的？</p>
+<p><img src="%E2%80%AAC:/Users/HuangXun/Desktop/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201115215519.png" alt="avatar"></p>
+<p>按理说图片放大或者缩小后，由于大小问题，确实不好与原图比较效果，那文章是如何把图片调整到同一比例的呢？那只能是对缩小后的图又用一次放大方法使其与原图相同了，那这样使用到的插值或者采样二次不会对结果造成误差嘛？另外，windows系统里自带的图片放大缩小功能又是使用的什么方法呢？搞不懂。。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/" data-id="ckhj6sy0y0000bst7cagv601w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matlab-%E5%9B%BE%E7%89%87-%E6%8F%92%E5%80%BC/" rel="tag">matlab 图片 插值</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/25/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-java%E6%A0%881/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LeetCode的那些事儿-java栈1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/matlab-%E5%9B%BE%E7%89%87-%E6%8F%92%E5%80%BC/" rel="tag">matlab 图片 插值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-LeetCode/" rel="tag">数据结构 LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">算法 数据结构</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/matlab-%E5%9B%BE%E7%89%87-%E6%8F%92%E5%80%BC/" style="font-size: 10px;">matlab 图片 插值</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-LeetCode/" style="font-size: 10px;">数据结构 LeetCode</a> <a href="/tags/%E7%AE%97%E6%B3%95-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20px;">算法 数据结构</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/">matlab实现图片插值缩放</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/25/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-java%E6%A0%881/">LeetCode的那些事儿-java栈1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/20/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%981046/">LeetCode的那些事儿-题1046</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E5%89%91%E6%8C%87%20Offer%2040/">LeetCode的那些事儿-剑指 Offer 40</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%98703/">LeetCode的那些事儿-题703</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 HuangXun<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
