@@ -14,13 +14,13 @@
 <meta property="og:site_name" content="黄珣的博客">
 <meta property="og:description" content="很久没更新博客了，这段时间没空刷leetcode题，在做实验室的课题，随便帮老师做一些杂事，前几天便涉及到了一个用插值法来做缩放图片的小任务，帮老师解决了下，同时也学到了一些图片缩放的知识，便想着把学到的东西记录下来供日后回顾。 图片缩放图片缩放，分为图片缩小和图片放大。众所周知，图片是由一个个的像素点构成的，分辨率越高的图，像素点越多。有时根据不同的需求，我们需要将图片放大或者缩小。那么如何实现">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/HuangXun-code/MarkDownPhotos/raw/main/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201115215519.png">
+<meta property="og:image" content="https://img.imgdb.cn/item/601abb023ffa7d37b30cc4cc.png">
 <meta property="article:published_time" content="2020-11-15T13:13:46.000Z">
-<meta property="article:modified_time" content="2020-11-15T14:13:12.366Z">
+<meta property="article:modified_time" content="2021-02-03T15:02:49.460Z">
 <meta property="article:author" content="HuangXun">
 <meta property="article:tag" content="matlab 图片 插值">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/HuangXun-code/MarkDownPhotos/raw/main/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201115215519.png">
+<meta name="twitter:image" content="https://img.imgdb.cn/item/601abb023ffa7d37b30cc4cc.png">
   
     <link rel="alternate" href="/atom.xml" title="黄珣的博客" type="application/atom+xml">
   
@@ -114,7 +114,7 @@ subplot(222), imshow(I1),title(&#39;最近邻插值&#39;);
 subplot(223), imshow(I2),title(&#39;双线性插值&#39;);
 subplot(224), imshow(I3),title(&#39;双立方插值&#39;);</code></pre>
 <h3 id="总结：一些疑问"><a href="#总结：一些疑问" class="headerlink" title="总结：一些疑问"></a>总结：一些疑问</h3><p>如何比较插值或者采样的好坏呢？我看到一篇文献里比较不同插值缩放图片的步骤里，效果图里，目标图与原图是比例一致，大小相同的，我很好奇这样是怎么做的？</p>
-<p><img src="https://github.com/HuangXun-code/MarkDownPhotos/raw/main/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201115215519.png" alt="Aaron Swartz"></p>
+<p><img src="https://img.imgdb.cn/item/601abb023ffa7d37b30cc4cc.png" alt="Aaron Swartz"></p>
 <p>按理说图片放大或者缩小后，由于大小问题，确实不好与原图比较效果，那文章是如何把图片调整到同一比例的呢？那只能是对缩小后的图又用一次放大方法使其与原图相同了，那这样使用到的插值或者采样二次不会对结果造成误差嘛？另外，windows系统里自带的图片放大缩小功能又是使用的什么方法呢？搞不懂。。</p>
 
       

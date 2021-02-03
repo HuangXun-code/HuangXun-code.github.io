@@ -361,7 +361,7 @@ subplot(222), imshow(I1),title(&#39;最近邻插值&#39;);
 subplot(223), imshow(I2),title(&#39;双线性插值&#39;);
 subplot(224), imshow(I3),title(&#39;双立方插值&#39;);</code></pre>
 <h3 id="总结：一些疑问"><a href="#总结：一些疑问" class="headerlink" title="总结：一些疑问"></a>总结：一些疑问</h3><p>如何比较插值或者采样的好坏呢？我看到一篇文献里比较不同插值缩放图片的步骤里，效果图里，目标图与原图是比例一致，大小相同的，我很好奇这样是怎么做的？</p>
-<p><img src="https://github.com/HuangXun-code/MarkDownPhotos/raw/main/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201115215519.png" alt="Aaron Swartz"></p>
+<p><img src="https://img.imgdb.cn/item/601abb023ffa7d37b30cc4cc.png" alt="Aaron Swartz"></p>
 <p>按理说图片放大或者缩小后，由于大小问题，确实不好与原图比较效果，那文章是如何把图片调整到同一比例的呢？那只能是对缩小后的图又用一次放大方法使其与原图相同了，那这样使用到的插值或者采样二次不会对结果造成误差嘛？另外，windows系统里自带的图片放大缩小功能又是使用的什么方法呢？搞不懂。。</p>
 
       
