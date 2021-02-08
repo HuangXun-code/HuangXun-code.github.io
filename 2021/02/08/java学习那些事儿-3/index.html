@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: matlab 图片 插值 | HuangXun&#39;s Blog</title>
+  <title>java学习那些事儿(3) | HuangXun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Love and freedom, you and gentleness">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HuangXun&#39;s Blog">
-<meta property="og:url" content="http://example.com/tags/matlab-%E5%9B%BE%E7%89%87-%E6%8F%92%E5%80%BC/index.html">
+  <meta name="description" content="1. 字符串数组排序在java中，自带的排序函数sort()其实可以实现对字符串数组的排序功能。对字符串数组的排序规则是根据每个字符串的相同位上ASCii码的大小进行排序，如“ab”与“bc”，先比较首位的‘a’与‘b’，前者的ASCii码小于后者，所以“ab”排前面。另外，大写字母排序在小写字母前面，原因同样是大写字母的ASCii码小于小写字母的ASCii码。值得一提的是，sort()方法可以采">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java学习那些事儿(3)">
+<meta property="og:url" content="http://example.com/2021/02/08/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-3/index.html">
 <meta property="og:site_name" content="HuangXun&#39;s Blog">
-<meta property="og:description" content="Love and freedom, you and gentleness">
+<meta property="og:description" content="1. 字符串数组排序在java中，自带的排序函数sort()其实可以实现对字符串数组的排序功能。对字符串数组的排序规则是根据每个字符串的相同位上ASCii码的大小进行排序，如“ab”与“bc”，先比较首位的‘a’与‘b’，前者的ASCii码小于后者，所以“ab”排前面。另外，大写字母排序在小写字母前面，原因同样是大写字母的ASCii码小于小写字母的ASCii码。值得一提的是，sort()方法可以采">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-08T15:13:19.000Z">
+<meta property="article:modified_time" content="2021-02-08T15:39:29.942Z">
 <meta property="article:author" content="HuangXun">
+<meta property="article:tag" content="java leetcode">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="HuangXun&#39;s Blog" type="application/atom+xml">
@@ -153,60 +156,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java学习那些事儿-3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/" class="archive-article-date">
-  	<time datetime="2020-11-15T13:13:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/">matlab实现图片插值缩放</a>
+    <h1 class="article-title" itemprop="name">
+      java学习那些事儿(3)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+        
+  	<br/>
+  	<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  	<span class="icon-sort"></span>
+  	<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            		阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  	</span>
+  	</a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/02/08/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-3/" class="archive-article-date">
+  	<time datetime="2021-02-08T15:13:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-字符串数组排序"><a href="#1-字符串数组排序" class="headerlink" title="1. 字符串数组排序"></a>1. 字符串数组排序</h2><p>在java中，自带的排序函数<code>sort()</code>其实可以实现对字符串数组的排序功能。对字符串数组的排序规则是根据每个字符串的相同位上ASCii码的大小进行排序，如“ab”与“bc”，先比较首位的‘a’与‘b’，前者的ASCii码小于后者，所以“ab”排前面。另外，大写字母排序在小写字母前面，原因同样是大写字母的ASCii码小于小写字母的ASCii码。值得一提的是，<code>sort()</code>方法可以采用<code>lamda</code>表达式与<code>compareTo</code>方法结合来修改排序规则。</p>
+<h2 id="2-gt-gt-与-gt-gt-gt-的区别"><a href="#2-gt-gt-与-gt-gt-gt-的区别" class="headerlink" title="2. &gt;&gt;与&gt;&gt;&gt;的区别"></a>2. &gt;&gt;与&gt;&gt;&gt;的区别</h2><p>在java中，<code>&gt;&gt;</code>代表有符号的向右位移，<code>&gt;&gt;&gt;</code>代表无符号的向右位移。其中，带符号的右移<code>&gt;&gt;</code>，正数右移高位补0，负数右移高位补1。例如，<code>4 &gt;&gt; 1 = 2，-4 &gt;&gt; 1 = -2</code>。而无符号的右移<code>&gt;&gt;&gt;</code>，无论正负数，右移后高位均补0。</p>
+<p>即，对于正数而言，<code>&gt;&gt;</code>与<code>&gt;&gt;&gt;</code>没区别；对于负数而言，是不一样的，有一个例子：<code>-2 &gt;&gt;&gt; 1</code>与<code>-1 &gt;&gt;&gt; 1</code>相等，结果都为<code>2147483647（Integer.MAX_VALUE）</code>。</p>
+<h2 id="3-deque与queue的区别"><a href="#3-deque与queue的区别" class="headerlink" title="3. deque与queue的区别"></a>3. deque与queue的区别</h2><p>在java中，LinkedList实现了Queue接口，Queue结构可以看做是队列，包含队列的一些方法如poll()与offer()等，而Deque是Queue的子接口，表示双端队列，内含双端队列的一些方法，例如pollFirst()、pollLast()、offerFirst()、oferLast()等。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">matlab 图片 插值</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java leetcode</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/02/08/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/02/05/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java学习那些事儿(2)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -231,9 +355,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
