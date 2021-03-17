@@ -6,19 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>操作系统笔记 | HuangXun&#39;s Blog</title>
+  <title>Tag: tensorflow bug | HuangXun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2.2 进程的状态大致分为五种：1.创建；2.就绪；3.运行；4.阻塞&#x2F;等待；5.结束； 2.3 进程间的通信方式7种：  匿名管道：适用于父子&#x2F;兄弟进程间的通信； 有名管道：使用于任何进程，遵循先进先出； 信号：通知接收进程某个事件已经发生； 消息队列：是消息的链表，克服了信号承载信息量少，而管道只能承载无格式字节流以及缓冲区大小受限等缺点； 信号量：计数器，用于多进程对共享数据的访问，解决同步">
-<meta property="og:type" content="article">
-<meta property="og:title" content="操作系统笔记">
-<meta property="og:url" content="http://example.com/2021/03/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/index.html">
+  <meta name="description" content="Love and freedom, you and gentleness">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HuangXun&#39;s Blog">
+<meta property="og:url" content="http://example.com/tags/tensorflow-bug/index.html">
 <meta property="og:site_name" content="HuangXun&#39;s Blog">
-<meta property="og:description" content="2.2 进程的状态大致分为五种：1.创建；2.就绪；3.运行；4.阻塞&#x2F;等待；5.结束； 2.3 进程间的通信方式7种：  匿名管道：适用于父子&#x2F;兄弟进程间的通信； 有名管道：使用于任何进程，遵循先进先出； 信号：通知接收进程某个事件已经发生； 消息队列：是消息的链表，克服了信号承载信息量少，而管道只能承载无格式字节流以及缓冲区大小受限等缺点； 信号量：计数器，用于多进程对共享数据的访问，解决同步">
+<meta property="og:description" content="Love and freedom, you and gentleness">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-02T02:39:47.000Z">
-<meta property="article:modified_time" content="2021-03-16T15:09:42.514Z">
 <meta property="article:author" content="HuangXun">
-<meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="HuangXun&#39;s Blog" type="application/atom+xml">
@@ -156,223 +153,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-操作系统笔记" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      操作系统笔记
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/12/06/tensorflow%E9%94%99%E8%AF%AF-tensorflow.python.framework.errors_impl.InvalidArgumentError/" class="archive-article-date">
+  	<time datetime="2020-12-06T03:12:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/12/06/tensorflow%E9%94%99%E8%AF%AF-tensorflow.python.framework.errors_impl.InvalidArgumentError/">tensorflow错误-tensorflow.python.framework.errors_impl.InvalidArgumentError</a>
     </h1>
   
 
-        <!--显示阅读次数-->
-        
-  	<br/>
-  	<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-  	<span class="icon-sort"></span>
-  	<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            		阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-  	</span>
-  	</a>
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/03/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-03-02T02:39:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="2-2-进程的状态"><a href="#2-2-进程的状态" class="headerlink" title="2.2 进程的状态"></a>2.2 进程的状态</h2><p>大致分为五种：<br>1.创建；2.就绪；3.运行；4.阻塞/等待；5.结束；</p>
-<h2 id="2-3-进程间的通信方式"><a href="#2-3-进程间的通信方式" class="headerlink" title="2.3 进程间的通信方式"></a>2.3 进程间的通信方式</h2><p>7种：</p>
-<ol>
-<li>匿名管道：适用于父子/兄弟进程间的通信；</li>
-<li>有名管道：使用于任何进程，遵循先进先出；</li>
-<li>信号：通知接收进程某个事件已经发生；</li>
-<li>消息队列：是消息的链表，克服了信号承载信息量少，而管道只能承载无格式字节流以及缓冲区大小受限等缺点；</li>
-<li>信号量：计数器，用于多进程对共享数据的访问，解决同步相关问题；</li>
-<li>共享内存：多个进程可访问同一块内存空间；</li>
-<li>套接字：用于客户端与服务器之间的通信，相当于两边的通信端点。</li>
-</ol>
-<h2 id="2-4-线程间的同步方式"><a href="#2-4-线程间的同步方式" class="headerlink" title="2.4 线程间的同步方式"></a>2.4 线程间的同步方式</h2><ol>
-<li>互斥量：采用互斥对象机制，e.g.synchronized关键字</li>
-<li>信号量：</li>
-<li>事件：</li>
-</ol>
-<h2 id="2-5-进程调度算法"><a href="#2-5-进程调度算法" class="headerlink" title="2.5 进程调度算法"></a>2.5 进程调度算法</h2><ol>
-<li>先到先服务FCFS：</li>
-<li>短作业优先SJF：</li>
-<li>时间片轮转：</li>
-<li>多级反馈队列：</li>
-<li>优先级调度</li>
-</ol>
-<h2 id="3-1-内存管理介绍"><a href="#3-1-内存管理介绍" class="headerlink" title="3.1 内存管理介绍"></a>3.1 内存管理介绍</h2><p>OS的内存管理主要负责：</p>
-<ol>
-<li>内存分配</li>
-<li>内存回收</li>
-<li>地址转换</li>
-</ol>
-<h2 id="3-2-内存管理机制"><a href="#3-2-内存管理机制" class="headerlink" title="3.2 内存管理机制"></a>3.2 内存管理机制</h2><ol>
-<li><p>连续分配管理方式：块式管理</p>
-</li>
-<li><p>非连续分配管理方式<br>1）页式管理<br>2）段时管理<br>3）段页式管理</p>
-</li>
-</ol>
-<h2 id="3-3-页式管理中的快表和多级页表"><a href="#3-3-页式管理中的快表和多级页表" class="headerlink" title="3.3 页式管理中的快表和多级页表"></a>3.3 页式管理中的快表和多级页表</h2><p>快表：为了提高虚拟地址转换物理地址的速度，在页表方案上引入快表来加速。快表-&gt;特殊的高速缓冲存储器，类似于Redis</p>
-<p>多级页表：目的是为了避免把全部页表一直放在内存中占用过多空间，节省页表占用过多内存：<br>时间换空间 -&gt;局部性原理</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tensorflow bug</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/03/11/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java学习笔记
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/02/08/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java学习那些事儿(3)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -397,9 +231,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
