@@ -155,6 +155,138 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-笔试题3：版本号比较" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/18/%E7%AC%94%E8%AF%95%E9%A2%983%EF%BC%9A%E7%89%88%E6%9C%AC%E5%8F%B7%E6%AF%94%E8%BE%83/">笔试题3：版本号比较</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/03/18/%E7%AC%94%E8%AF%95%E9%A2%983%EF%BC%9A%E7%89%88%E6%9C%AC%E5%8F%B7%E6%AF%94%E8%BE%83/" class="archive-article-date">
+  	<time datetime="2021-03-18T01:45:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目简述"><a href="#题目简述" class="headerlink" title="题目简述"></a>题目简述</h2><p>题目同样是LeetCode上有的题，要求比较给出的两个版本号<code>version1</code>和<code>version2</code>，<code>version1 &gt; version2</code>则返回<code>1</code>，<code>version1 &lt; version2</code>返回<code>-1</code>，<code>version1 = version2</code>返回<code>0</code>。</p>
+<p>示例如下：</p>
+<pre><code>输入：“1.0”,  “1.0.0”
+输出：0
+
+输入：“1.01”,  “1.001”
+输出：0
+解释：忽略前导0
+
+输入：“1.0.1”,  “1”
+输出：1</code></pre>
+<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>需要我们自己写输入和输出，这道题比较简单，核心思路在于切片和遍历，先把字符串按“.”切分后得到两个字符串数组，之后同时对两个数组遍历，相同位置转换成int后进行比较，遍历中有三种情况：1.数组长度相同，则在遍历中就能得到比较结果；2.version1的字符串数组长度大于version2的，则version1的字符串数组还没遍历完；3.version2字符串数组大于version1的，version2的还没遍历完。对后两者的情况，继续遍历，只要数字不为0，说明要大于另外一个。最后都遍历完都没有结果，那么肯定就是相等了。</p>
+<p>另外，有几点需要注意：</p>
+<ol>
+<li>题目给的是一整个字符串，包括逗号，引号还竟然是全角的，切分的时候需要注意逗号后还有空格；</li>
+<li>Java自带<code>split()</code>方法用于切分字符串，<code>split()</code>是基于正则表达式的原理来匹配的，所以当用<code>.</code>切分时，需要在前面加两个反斜杠<code>\\</code>，因为单单用<code>.</code>的话，在正则表达式里代表任意一个字符，而<code>\.</code>代表转义后的<code>.</code>，而Java中<code>\</code>属于特殊字符，要表达<code>\</code>的话还要进行转义，所以要用两次<code>\</code>；</li>
+<li>这道题我在LeetCode上是通过了的，但是笔试平台里，我只通过了一半，还有两个示例不知道为啥没有通过？？我这代码还有哪里有问题嘛，不懂。。</li>
+</ol>
+<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><pre><code>import java.util.Scanner;
+
+public class version &#123;
+    public static void main(String[] args)&#123;
+        Scanner sc = new Scanner(System.in);
+        String s;
+        s = sc.nextLine();
+        s = s.replaceAll(&quot;“&quot;,&quot;&quot;);
+        s = s.replaceAll(&quot;”&quot;,&quot;&quot;);
+        String[] nums = s.split(&quot;,  &quot;);
+        System.out.println(compareVersion(nums[0], nums[1]));
+    &#125;
+
+    public static int compareVersion(String s1, String s2)&#123;
+        String[] n1 = s1.split(&quot;\\.&quot;);
+        String[] n2 = s2.split(&quot;\\.&quot;);
+        int len1 = n1.length;
+        int len2 = n2.length;
+        int i, j;
+        for (i = 0, j = 0; i &lt; len1 &amp;&amp; j &lt; len2; i++,j++)&#123;
+            if (Integer.parseInt(n1[i]) &gt; Integer.parseInt(n2[j]))
+                return 1;
+            else if (Integer.parseInt(n1[i]) &lt; Integer.parseInt(n2[j]))
+                return -1;
+        &#125;
+        while(i &lt; len1)&#123;
+            if (Integer.parseInt(n1[i]) != 0)
+                return 1;
+            i++;
+        &#125;
+        while(j &lt; len2)&#123;
+            if (Integer.parseInt(n2[j]) != 0)
+                return -1;
+            j++;
+        &#125;
+        return 0;
+    &#125;
+&#125;</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java 算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/18/%E7%AC%94%E8%AF%95%E9%A2%983%EF%BC%9A%E7%89%88%E6%9C%AC%E5%8F%B7%E6%AF%94%E8%BE%83/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-笔试题2：层序遍历二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1302,85 +1434,6 @@ Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obta
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/12/30/spring-%E9%A1%B9%E7%9B%AE%E5%88%9D%E6%8E%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jupyter打不开的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/17/jupyter%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">jupyter打不开的解决方法</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/12/17/jupyter%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-12-17T03:59:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前也使用过jupyter来运行ipynb文件，也遇到过一些问题，想把解决方法记录下来，以供日后参考。</p>
-<h2 id="jupyter-notebook打不开怎么办？"><a href="#jupyter-notebook打不开怎么办？" class="headerlink" title="jupyter notebook打不开怎么办？"></a>jupyter notebook打不开怎么办？</h2><p>如果从anaconda下的jupyter notebook直接点击打不开，可以试着先打开Anaconda Prompt，再输入jupyter notebook，即可从浏览器打开。</p>
-<h2 id="jupyter-notebook的运行方式"><a href="#jupyter-notebook的运行方式" class="headerlink" title="jupyter notebook的运行方式"></a>jupyter notebook的运行方式</h2><p>点击某个ipynb文件进入后，点击 Cell下的Run all运行全部代码；有点时候运行途中，有些行会出现In[*]，说明该代码块没有运行；又或者有时运行全部代码后，后面的代码块出现结果，而前面的没有出现结果，说明代码可能有地方运行错误，需要找bug。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/17/jupyter%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
         </p>
       
 
