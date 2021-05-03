@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>LeetCode的那些事儿-java栈1 | HuangXun&#39;s Blog</title>
+  <title>算法中的子序列问题 | HuangXun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="把LeetCode中栈解法的简单题型都过了一遍，所以想把一些比较经典的题目解法和栈的思想给记录下来。 栈介绍定义栈，简单来说就是一个类似数组的容器，把元素都放进栈中，所有元素按照先进后出的顺序排列。以[a, b, c]为例，依次向栈中存入a、b、c，则取出顺序是c、b、a，最后进的最先出，最先进的最后出。 java栈java中实现了几种栈的用法，以Object类型为例，如下： 1.Stack&amp;lt">
+  <meta name="description" content="把leetcode中做过的子序列问题整理一下，总结下通用的一些方法。 最长递增子序列class Solution &amp;#123;     public int lengthOfLIS(int[] nums) &amp;#123;         if (nums.length &#x3D;&#x3D; 0) return 0;         int[] dp &#x3D; new int[nums.length];         &#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode的那些事儿-java栈1">
-<meta property="og:url" content="http://example.com/2020/10/25/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-java%E6%A0%881/index.html">
+<meta property="og:title" content="算法中的子序列问题">
+<meta property="og:url" content="http://example.com/2021/04/04/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="HuangXun&#39;s Blog">
-<meta property="og:description" content="把LeetCode中栈解法的简单题型都过了一遍，所以想把一些比较经典的题目解法和栈的思想给记录下来。 栈介绍定义栈，简单来说就是一个类似数组的容器，把元素都放进栈中，所有元素按照先进后出的顺序排列。以[a, b, c]为例，依次向栈中存入a、b、c，则取出顺序是c、b、a，最后进的最先出，最先进的最后出。 java栈java中实现了几种栈的用法，以Object类型为例，如下： 1.Stack&amp;lt">
+<meta property="og:description" content="把leetcode中做过的子序列问题整理一下，总结下通用的一些方法。 最长递增子序列class Solution &amp;#123;     public int lengthOfLIS(int[] nums) &amp;#123;         if (nums.length &#x3D;&#x3D; 0) return 0;         int[] dp &#x3D; new int[nums.length];         &#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-25T13:58:25.000Z">
-<meta property="article:modified_time" content="2020-10-25T15:02:12.296Z">
+<meta property="article:published_time" content="2021-04-04T09:55:32.000Z">
+<meta property="article:modified_time" content="2021-04-04T10:30:11.735Z">
 <meta property="article:author" content="HuangXun">
-<meta property="article:tag" content="数据结构 LeetCode">
+<meta property="article:tag" content="算法 数据结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="HuangXun&#39;s Blog" type="application/atom+xml">
@@ -156,14 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LeetCode的那些事儿-java栈1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-算法中的子序列问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode的那些事儿-java栈1
+      算法中的子序列问题
     </h1>
   
 
@@ -179,150 +179,139 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/10/25/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-java%E6%A0%881/" class="archive-article-date">
-  	<time datetime="2020-10-25T13:58:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+        <a href="/2021/04/04/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-04-04T09:55:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>把LeetCode中栈解法的简单题型都过了一遍，所以想把一些比较经典的题目解法和栈的思想给记录下来。</p>
-<h2 id="栈介绍"><a href="#栈介绍" class="headerlink" title="栈介绍"></a>栈介绍</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>栈，简单来说就是一个类似数组的容器，把元素都放进栈中，所有元素按照<strong>先进后出</strong>的顺序排列。以[a, b, c]为例，依次向栈中存入a、b、c，则取出顺序是c、b、a，最后进的最先出，最先进的最后出。</p>
-<h3 id="java栈"><a href="#java栈" class="headerlink" title="java栈"></a>java栈</h3><p>java中实现了几种栈的用法，以Object类型为例，如下：</p>
-<pre><code>1.Stack&lt;Object&gt; stack = new Stack&lt;&gt;();
-2.Deque&lt;Object&gt; stack = new ArrayDeque&lt;Object&gt;();
-3.Deque&lt;Object&gt; stack = new LinkedList&lt;Object&gt;();</code></pre>
-<p>其中，<code>ArrayDeque</code>和<code>LinkedList</code>既可以实现栈，也可以用来实现队列。</p>
-<h3 id="栈的几种重要函数"><a href="#栈的几种重要函数" class="headerlink" title="栈的几种重要函数"></a>栈的几种重要函数</h3><p>java栈有几种重要函数是在LeetCode中需要经常用到的，如下：</p>
-<pre><code>1.stack.isEmpty() //判断栈是否为空
-2.stack.push() //入栈，一般返回空类型
-3.stack.pop() //出栈，有返回出栈元素，也有返回空类型的
-4.stack.peek() //返回栈顶元素
-5.stack.size() //返回栈容量</code></pre>
-<h2 id="几个经典栈解法的题"><a href="#几个经典栈解法的题" class="headerlink" title="几个经典栈解法的题"></a>几个经典栈解法的题</h2><h3 id="1-最小栈"><a href="#1-最小栈" class="headerlink" title="1.最小栈"></a>1.最小栈</h3><p>问题描述：设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。<br>解：首先，我们可以想到，每次存入一个元素时，栈都能保存当前栈中最小的元素，为了实现这个想法，我们在构造器中定义两个栈，其中一个栈是辅助栈，另一个是元素栈，辅助栈与元素栈同步进出栈。在辅助栈栈顶存入最小元素，每次入栈时进行判断，只要有比辅助栈顶更小的元素就入栈；出栈时，辅助栈的元素也一同出栈。这样每个时刻辅助栈顶都能存放到最小元素，直接调用peek()方法即可。</p>
-<p>代码实现：</p>
-<pre><code>class MinStack &#123;
-    Deque&lt;Integer&gt; xstack;
-    Deque&lt;Integer&gt; minstack;
-    /** initialize your data structure here. */
-    public MinStack() &#123;
-        xstack = new LinkedList&lt;Integer&gt;();
-        minstack = new LinkedList&lt;Integer&gt;();
-        minstack.push(Integer.MAX_VALUE);
-    &#125;
-
-    public void push(int x) &#123;
-        xstack.push(x);
-        minstack.push(Math.min(minstack.peek(),x));
-    &#125;
-
-    public void pop() &#123;
-        xstack.pop();
-        minstack.pop();
-    &#125;
-
-    public int top() &#123;
-        return xstack.peek();
-
-    &#125;
-
-    public int getMin() &#123;
-        return minstack.peek();
-    &#125;
-&#125;</code></pre>
-<h3 id="2-队列实现栈"><a href="#2-队列实现栈" class="headerlink" title="2.队列实现栈"></a>2.队列实现栈</h3><p>题目描述：使用队列实现栈的下列操作：</p>
-<ul>
-<li>push(x) – 元素 x 入栈</li>
-<li>pop() – 移除栈顶元素</li>
-<li>top() – 获取栈顶元素</li>
-<li>empty() – 返回栈是否为空</li>
-</ul>
-<p>这里介绍下，队列是与栈类似的容器，唯一的区别在于队列是<strong>先进先出</strong>的。</p>
-<p>解：同样有两种方法，在add或者remove中进行解决，我们依然考虑在add中进行解决，使用两个队列，思想还是把队列的顺序倒过来，每次入队后，把队里元素颠倒后再存入，队列就变成栈了。具体操作为：先把当前元素进队2（队2与栈2都是初始为空的），注意这里和队列实现栈不同的是，要先把当前元素进队列中。然后再把队1的元素依次出队后再进队2中，之后将队1与队2交换，交换后的队1中，刚入的元素就在队的最前面，即队顶了，而队2再次变为空队。之后remove与top、epmpy操作都正常。需要注意的是记录下每次入队后的当前队顶的元素。</p>
-<p>代码实现：</p>
-<pre><code>class MyStack &#123;
-    private Queue&lt;Integer&gt; queue1;
-    private Queue&lt;Integer&gt; queue2;
-    private int top;
-    /** Initialize your data structure here. */
-    public MyStack() &#123;
-        queue1 = new LinkedList&lt;&gt;();
-        queue2 = new LinkedList&lt;&gt;();
-    &#125;
-
-    /** Push element x onto stack. */
-    public void push(int x) &#123;
-        queue2.add(x);
-        top = x;
-        while(!queue1.isEmpty())&#123;
-            queue2.add(queue1.remove());
+        <p>把leetcode中做过的子序列问题整理一下，总结下通用的一些方法。</p>
+<h3 id="最长递增子序列"><a href="#最长递增子序列" class="headerlink" title="最长递增子序列"></a>最长递增子序列</h3><pre><code>class Solution &#123;
+    public int lengthOfLIS(int[] nums) &#123;
+        if (nums.length == 0) return 0;
+        int[] dp = new int[nums.length];
+        //dp[n] = max(dp[0]~dp[n-1]) + 1
+        int ma = Integer.MIN_VALUE;
+        for (int i = 0; i &lt; nums.length; i++)&#123;
+            dp[i] = 1;
+            for (int j = 0; j &lt; i; j++)&#123;
+                if (nums[i] &gt; nums[j])&#123;
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                &#125;
+            &#125;
+            ma = Math.max(ma, dp[i]);
         &#125;
-        Queue&lt;Integer&gt; temp = queue1; //不用初始化，直接赋值
-        queue1 = queue2;
-        queue2 = temp;
-    &#125;
+        return ma;
 
-    /** Removes the element on top of the stack and returns that element. */
-    public int pop() &#123; //出队列后，top需要更换
-        //return queue1.remove();
-        queue1.remove();
-        int res = top;
-        if (!queue1.isEmpty()) //需要加这行,否则peek方法会报空指针的错误
-            top = queue1.peek();
-        return res;
-    &#125;
 
-    /** Get the top element. */
-    public int top() &#123;
-        return top;
-    &#125;
-
-    /** Returns whether the stack is empty. */
-    public boolean empty() &#123;
-        return queue1.isEmpty();
     &#125;
 &#125;</code></pre>
-<h3 id="3-栈实现队列"><a href="#3-栈实现队列" class="headerlink" title="3.栈实现队列"></a>3.栈实现队列</h3><p>题目描述：请你仅使用两个栈实现先入先出队列。队列应当支持一般队列的支持的所有操作（push、pop、peek、empty）。<br>解：有两种方法，在push或者pop中进行解决，考虑在push中进行解决的话，我们就要把栈的顺序倒过来，每次入栈后，把栈里元素颠倒后再存入，栈就变成队列了。具体操作为：先把栈1的元素全部出栈，并进到栈2中，此时再把要入栈的当前元素入栈2，再把所有栈2的元素倒入栈1中，这样当前元素就在栈1的最底下，实现了队列的先进先出，后进后出的效果了。之后pop正常出栈即可。其余peek与empty都正常操作。</p>
-<p>代码实现：</p>
-<pre><code>class MyQueue &#123;
-    private Deque&lt;Integer&gt; stack1;
-    private Deque&lt;Integer&gt; stack2;
-    private int front;
-    /** Initialize your data structure here. */
-    public MyQueue() &#123;
-        stack1 = new LinkedList&lt;Integer&gt;();
-        stack2 = new LinkedList&lt;Integer&gt;();
+<h3 id="最大连续子序列之和"><a href="#最大连续子序列之和" class="headerlink" title="最大连续子序列之和"></a>最大连续子序列之和</h3><pre><code>class Solution &#123;
+    public int maxSubArray(int[] nums) &#123;
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        int ma = dp[0];
+        for (int i = 1; i &lt; nums.length; i++)&#123;
+            dp[i] = Math.max(dp[i-1] + nums[i], nums[i]);
+            ma = Math.max(dp[i], ma);
+        &#125;
+        return ma;
     &#125;
-
-    /** Push element x to the back of queue. */
-    public void push(int x) &#123;
-        if(stack1.isEmpty())
-            front = x;
-        while(!stack1.isEmpty())
-            stack2.push(stack1.pop());
-        stack2.push(x);
-        while(!stack2.isEmpty())
-            stack1.push(stack2.pop());
+&#125;</code></pre>
+<h3 id="最长不含重复字符的子字符串"><a href="#最长不含重复字符的子字符串" class="headerlink" title="最长不含重复字符的子字符串"></a>最长不含重复字符的子字符串</h3><p>类似子序列问题，但求得的是子字符串，使用滑动窗口</p>
+<pre><code>class Solution &#123;
+    public int lengthOfLongestSubstring(String s) &#123;
+        Set&lt;Character&gt; set = new HashSet&lt;&gt;();
+        int l = 0, r = 0, res = 0;
+        while(r &lt; s.length())&#123;
+            char c = s.charAt(r++);
+            while(set.contains(c))
+                set.remove(s.charAt(l++));
+            set.add(c);
+            res = Math.max(res, r - l);
+        &#125;
+        return res;
     &#125;
+&#125;</code></pre>
+<h3 id="最长和谐子序列"><a href="#最长和谐子序列" class="headerlink" title="最长和谐子序列"></a>最长和谐子序列</h3><p>和谐数组是指一个数组里元素的最大值和最小值之间的差别 正好是 1 。</p>
+<p>使用两次遍历或者哈希</p>
+<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><pre><code>class Solution &#123;
+    public int longestCommonSubsequence(String text1, String text2) &#123;
+        if (text1.length() == 0 || text2.length() == 0) return 0;
+        int m = text1.length();
+        int n = text2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 1; i &lt;= m; i++)&#123;
+            for (int j = 1; j &lt;= n; j++)&#123;
+                if (text1.charAt(i - 1) == text2.charAt(j - 1))
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                else
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            &#125;
+        &#125;
+        return dp[m][n];
+    &#125;
+&#125;</code></pre>
+<h3 id="递增子序列"><a href="#递增子序列" class="headerlink" title="递增子序列"></a>递增子序列</h3><p>求所有2以上的递增子序列，dfs遍历</p>
+<pre><code>class Solution &#123;
+    List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();
+    List&lt;Integer&gt; tmp = new ArrayList&lt;&gt;();
 
-    /** Removes the element from in front of queue and returns that element. */
-    public int pop() &#123;
-        int res = front;
-        stack1.pop();
-        if (!stack1.isEmpty())
-            front = stack1.peek();
+    public List&lt;List&lt;Integer&gt;&gt; findSubsequences(int[] nums) &#123;
+        dfs(0, Integer.MIN_VALUE, nums);
         return res;
     &#125;
 
-    /** Get the front element. */
-    public int peek() &#123;
-        return front;
-    &#125;
+    public void dfs(int cur, int last, int[] nums)&#123;
+        if (nums.length == cur)&#123;
+            if (tmp.size() &gt;= 2)&#123;
+                res.add(new ArrayList&lt;&gt;(tmp));
+            &#125;
+            return;
+        &#125;
+        if (nums[cur] &gt;= last)&#123;
+            tmp.add(nums[cur]);
+            dfs(cur + 1, nums[cur], nums);
+            tmp.remove(tmp.size() - 1);
+        &#125;
 
-    /** Returns whether the queue is empty. */
-    public boolean empty() &#123;
-        return stack1.isEmpty();
+        if (nums[cur] != last)&#123;
+            dfs(cur + 1, last, nums);
+        &#125;
+
+    &#125;
+&#125;</code></pre>
+<h3 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h3><p>定义：P(i,j)=P(i+1,j−1)∧(S i​==S j​)</p>
+<pre><code>class Solution &#123;
+    public String longestPalindrome(String s) &#123;
+        int n = s.length();
+        if (n &lt; 2) return s;
+        int maxLen = 1;
+        int begin = 0;
+        boolean[][] dp = new boolean[n][n];
+        //String res = &quot;&quot;;
+        for (int i = 0; i &lt; n; i++)
+            dp[i][i] = true;
+        for (int j = 1; j &lt; n; j++)&#123;
+            for (int i = 0; i &lt; j; i++)&#123;
+                if (s.charAt(i) == s.charAt(j))&#123;
+                    if (j - i &lt;= 2)&#123;
+                        dp[i][j] = true;
+                    &#125;else&#123;
+                        dp[i][j] = dp[i+1][j-1];
+                    &#125;
+                &#125;else&#123;
+                    dp[i][j] = false;
+                &#125;
+                if (dp[i][j] &amp;&amp; j - i + 1 &gt; maxLen)&#123;
+                    maxLen = j - i + 1;
+                    begin = i;
+                &#125;
+            &#125;
+        &#125;
+        return s.substring(begin, begin + maxLen);
     &#125;
 &#125;</code></pre>
 
@@ -359,7 +348,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据结构 LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法 数据结构</a>
         		</li>
       		
 		</ul>
@@ -415,7 +404,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/25/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-java%E6%A0%881/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/04/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -429,18 +418,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/05/02/%E5%9C%A8%E7%BA%BF%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          matlab实现图片插值缩放
+          在线论坛系统开发笔记
         
       </div>
     </a>
   
   
-    <a href="/2020/10/20/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%981046/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode的那些事儿-题1046</div>
+    <a href="/2021/04/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机网络</div>
       <i class="icon-circle-right"></i>
     </a>
   

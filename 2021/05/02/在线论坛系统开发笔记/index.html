@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>LeetCode的那些事儿-java栈1 | HuangXun&#39;s Blog</title>
+  <title>在线论坛系统开发笔记 | HuangXun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="把LeetCode中栈解法的简单题型都过了一遍，所以想把一些比较经典的题目解法和栈的思想给记录下来。 栈介绍定义栈，简单来说就是一个类似数组的容器，把元素都放进栈中，所有元素按照先进后出的顺序排列。以[a, b, c]为例，依次向栈中存入a、b、c，则取出顺序是c、b、a，最后进的最先出，最先进的最后出。 java栈java中实现了几种栈的用法，以Object类型为例，如下： 1.Stack&amp;lt">
+  <meta name="description" content="记录下自己开发论坛项目的一些知识点，以供日后复习。 登录模块实现采用github的Oauth授权机制+okhttp模拟get&#x2F;post实现登录功能 用户点击登录后，服务端首先调用github接口获取授权，授权成功后使用回调函数，跳转至我们申请的redirect_uri，跳转回时会携带一个code 服务端写好api接收code，并调用github的access_token接口，模拟post请求访问g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode的那些事儿-java栈1">
-<meta property="og:url" content="http://example.com/2020/10/25/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-java%E6%A0%881/index.html">
+<meta property="og:title" content="在线论坛系统开发笔记">
+<meta property="og:url" content="http://example.com/2021/05/02/%E5%9C%A8%E7%BA%BF%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="HuangXun&#39;s Blog">
-<meta property="og:description" content="把LeetCode中栈解法的简单题型都过了一遍，所以想把一些比较经典的题目解法和栈的思想给记录下来。 栈介绍定义栈，简单来说就是一个类似数组的容器，把元素都放进栈中，所有元素按照先进后出的顺序排列。以[a, b, c]为例，依次向栈中存入a、b、c，则取出顺序是c、b、a，最后进的最先出，最先进的最后出。 java栈java中实现了几种栈的用法，以Object类型为例，如下： 1.Stack&amp;lt">
+<meta property="og:description" content="记录下自己开发论坛项目的一些知识点，以供日后复习。 登录模块实现采用github的Oauth授权机制+okhttp模拟get&#x2F;post实现登录功能 用户点击登录后，服务端首先调用github接口获取授权，授权成功后使用回调函数，跳转至我们申请的redirect_uri，跳转回时会携带一个code 服务端写好api接收code，并调用github的access_token接口，模拟post请求访问g">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-25T13:58:25.000Z">
-<meta property="article:modified_time" content="2020-10-25T15:02:12.296Z">
+<meta property="article:published_time" content="2021-05-02T07:11:53.000Z">
+<meta property="article:modified_time" content="2021-05-03T07:10:59.577Z">
 <meta property="article:author" content="HuangXun">
-<meta property="article:tag" content="数据结构 LeetCode">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="HuangXun&#39;s Blog" type="application/atom+xml">
@@ -156,14 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LeetCode的那些事儿-java栈1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-在线论坛系统开发笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode的那些事儿-java栈1
+      在线论坛系统开发笔记
     </h1>
   
 
@@ -179,152 +179,72 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/10/25/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-java%E6%A0%881/" class="archive-article-date">
-  	<time datetime="2020-10-25T13:58:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+        <a href="/2021/05/02/%E5%9C%A8%E7%BA%BF%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2021-05-02T07:11:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>把LeetCode中栈解法的简单题型都过了一遍，所以想把一些比较经典的题目解法和栈的思想给记录下来。</p>
-<h2 id="栈介绍"><a href="#栈介绍" class="headerlink" title="栈介绍"></a>栈介绍</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>栈，简单来说就是一个类似数组的容器，把元素都放进栈中，所有元素按照<strong>先进后出</strong>的顺序排列。以[a, b, c]为例，依次向栈中存入a、b、c，则取出顺序是c、b、a，最后进的最先出，最先进的最后出。</p>
-<h3 id="java栈"><a href="#java栈" class="headerlink" title="java栈"></a>java栈</h3><p>java中实现了几种栈的用法，以Object类型为例，如下：</p>
-<pre><code>1.Stack&lt;Object&gt; stack = new Stack&lt;&gt;();
-2.Deque&lt;Object&gt; stack = new ArrayDeque&lt;Object&gt;();
-3.Deque&lt;Object&gt; stack = new LinkedList&lt;Object&gt;();</code></pre>
-<p>其中，<code>ArrayDeque</code>和<code>LinkedList</code>既可以实现栈，也可以用来实现队列。</p>
-<h3 id="栈的几种重要函数"><a href="#栈的几种重要函数" class="headerlink" title="栈的几种重要函数"></a>栈的几种重要函数</h3><p>java栈有几种重要函数是在LeetCode中需要经常用到的，如下：</p>
-<pre><code>1.stack.isEmpty() //判断栈是否为空
-2.stack.push() //入栈，一般返回空类型
-3.stack.pop() //出栈，有返回出栈元素，也有返回空类型的
-4.stack.peek() //返回栈顶元素
-5.stack.size() //返回栈容量</code></pre>
-<h2 id="几个经典栈解法的题"><a href="#几个经典栈解法的题" class="headerlink" title="几个经典栈解法的题"></a>几个经典栈解法的题</h2><h3 id="1-最小栈"><a href="#1-最小栈" class="headerlink" title="1.最小栈"></a>1.最小栈</h3><p>问题描述：设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。<br>解：首先，我们可以想到，每次存入一个元素时，栈都能保存当前栈中最小的元素，为了实现这个想法，我们在构造器中定义两个栈，其中一个栈是辅助栈，另一个是元素栈，辅助栈与元素栈同步进出栈。在辅助栈栈顶存入最小元素，每次入栈时进行判断，只要有比辅助栈顶更小的元素就入栈；出栈时，辅助栈的元素也一同出栈。这样每个时刻辅助栈顶都能存放到最小元素，直接调用peek()方法即可。</p>
-<p>代码实现：</p>
-<pre><code>class MinStack &#123;
-    Deque&lt;Integer&gt; xstack;
-    Deque&lt;Integer&gt; minstack;
-    /** initialize your data structure here. */
-    public MinStack() &#123;
-        xstack = new LinkedList&lt;Integer&gt;();
-        minstack = new LinkedList&lt;Integer&gt;();
-        minstack.push(Integer.MAX_VALUE);
-    &#125;
+        <p>记录下自己开发论坛项目的一些知识点，以供日后复习。</p>
+<h2 id="登录模块实现"><a href="#登录模块实现" class="headerlink" title="登录模块实现"></a>登录模块实现</h2><h3 id="采用github的Oauth授权机制-okhttp模拟get-post实现登录功能"><a href="#采用github的Oauth授权机制-okhttp模拟get-post实现登录功能" class="headerlink" title="采用github的Oauth授权机制+okhttp模拟get/post实现登录功能"></a>采用github的Oauth授权机制+okhttp模拟get/post实现登录功能</h3><ol>
+<li>用户点击登录后，服务端首先调用github接口获取授权，授权成功后使用回调函数，跳转至我们申请的redirect_uri，跳转回时会携带一个code</li>
+<li>服务端写好api接收code，并调用github的access_token接口，模拟post请求访问github，把返回的code再传递回去</li>
+<li>之后请求会返回一个access_token</li>
+<li>然后服务端再调用github的user接口，模拟get请求，通过携带accesstoken，来获取github的用户信息</li>
+</ol>
+<h3 id="token机制实现持久化登录"><a href="#token机制实现持久化登录" class="headerlink" title="token机制实现持久化登录"></a>token机制实现持久化登录</h3><ol>
+<li>用户尝试登陆</li>
+<li>登陆成功后，后端依靠加密算法，将凭证生成 token，返回给客户端</li>
+<li>客户端保存 token，每次发送请求时，携带 token</li>
+<li>后端再接收到带有 token 的请求时，在数据库中查找，验证 token 的有效性</li>
+</ol>
+<p>为了便捷，这里没有采用加密算法生成token，而是使用<code>UUID.randomUUID()</code>生成随机的字符串，相当于token</p>
+<h2 id="问题列表分页模块"><a href="#问题列表分页模块" class="headerlink" title="问题列表分页模块"></a>问题列表分页模块</h2><h3 id="分页功能设计"><a href="#分页功能设计" class="headerlink" title="分页功能设计"></a>分页功能设计</h3><p>具体包括首页、尾页、上一页、下一页、第i页；</p>
+<p>当跳转页面后，不包括首页页码时，显示跳转至首页的button，否则不显示，<br>当跳转页面后，不包括尾页页码时，显示跳转至尾页的button，否则不显示；</p>
+<p>当目前页面在首页时，不显示上一页的button，<br>当目前页面在尾页时，不显示下一页的button；</p>
+<p>当页面list不包含首页时，不显示跳转首页的button，<br>当页面list不包含尾页时，不显示跳转尾页的button；</p>
+<p>页列表最长显示7个页码</p>
+<p>每页显示5个问题</p>
+<h3 id="分页功能实现"><a href="#分页功能实现" class="headerlink" title="分页功能实现"></a>分页功能实现</h3><p>查询每页问题时，使用mysql查询语句实现，这里选取每页展示5条问题，即size=5：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from QUESTION limit 0, 5;</span><br></pre></td></tr></table></figure>
 
-    public void push(int x) &#123;
-        xstack.push(x);
-        minstack.push(Math.min(minstack.peek(),x));
-    &#125;
-
-    public void pop() &#123;
-        xstack.pop();
-        minstack.pop();
-    &#125;
-
-    public int top() &#123;
-        return xstack.peek();
-
-    &#125;
-
-    public int getMin() &#123;
-        return minstack.peek();
-    &#125;
+<p>以该语句为例，limit后面的0代表从1开始，读取1开始的5条数据，按照这样的方式，设置开始的问题序号和偏移量就能完成问题的查询。</p>
+<p>由此得出页码转换成问题序号的偏移量的公式：</p>
+<p>问题序号的偏移量=5*(i-1)，5是size，即每页展示5条问题，i代表页码，例如当i=2时，此时limit=5*(i-1)=5，显示id从6开始到10为止的5条问题。</p>
+<p>获取问题序号的偏移量offset，和size=5，再使用上文的sql语句查询获取问题数据；</p>
+<p>另外，总页数计算的伪代码如下：</p>
+<pre><code>if (questionCount % 5 != 0)&#123;
+    pageCount = questionCount / 5 + 1;
+&#125;
+else&#123;
+    pageCount = questionCount / 5;
 &#125;</code></pre>
-<h3 id="2-队列实现栈"><a href="#2-队列实现栈" class="headerlink" title="2.队列实现栈"></a>2.队列实现栈</h3><p>题目描述：使用队列实现栈的下列操作：</p>
-<ul>
-<li>push(x) – 元素 x 入栈</li>
-<li>pop() – 移除栈顶元素</li>
-<li>top() – 获取栈顶元素</li>
-<li>empty() – 返回栈是否为空</li>
-</ul>
-<p>这里介绍下，队列是与栈类似的容器，唯一的区别在于队列是<strong>先进先出</strong>的。</p>
-<p>解：同样有两种方法，在add或者remove中进行解决，我们依然考虑在add中进行解决，使用两个队列，思想还是把队列的顺序倒过来，每次入队后，把队里元素颠倒后再存入，队列就变成栈了。具体操作为：先把当前元素进队2（队2与栈2都是初始为空的），注意这里和队列实现栈不同的是，要先把当前元素进队列中。然后再把队1的元素依次出队后再进队2中，之后将队1与队2交换，交换后的队1中，刚入的元素就在队的最前面，即队顶了，而队2再次变为空队。之后remove与top、epmpy操作都正常。需要注意的是记录下每次入队后的当前队顶的元素。</p>
-<p>代码实现：</p>
-<pre><code>class MyStack &#123;
-    private Queue&lt;Integer&gt; queue1;
-    private Queue&lt;Integer&gt; queue2;
-    private int top;
-    /** Initialize your data structure here. */
-    public MyStack() &#123;
-        queue1 = new LinkedList&lt;&gt;();
-        queue2 = new LinkedList&lt;&gt;();
-    &#125;
-
-    /** Push element x onto stack. */
-    public void push(int x) &#123;
-        queue2.add(x);
-        top = x;
-        while(!queue1.isEmpty())&#123;
-            queue2.add(queue1.remove());
+<p>页面list的计算方法如下：</p>
+<pre><code>    for (int i = 1; i &lt;= 3; i++) &#123;
+        if (page - i &gt; 0) &#123;
+            pages.add(0, page - i);
         &#125;
-        Queue&lt;Integer&gt; temp = queue1; //不用初始化，直接赋值
-        queue1 = queue2;
-        queue2 = temp;
-    &#125;
-
-    /** Removes the element on top of the stack and returns that element. */
-    public int pop() &#123; //出队列后，top需要更换
-        //return queue1.remove();
-        queue1.remove();
-        int res = top;
-        if (!queue1.isEmpty()) //需要加这行,否则peek方法会报空指针的错误
-            top = queue1.peek();
-        return res;
-    &#125;
-
-    /** Get the top element. */
-    public int top() &#123;
-        return top;
-    &#125;
-
-    /** Returns whether the stack is empty. */
-    public boolean empty() &#123;
-        return queue1.isEmpty();
-    &#125;
-&#125;</code></pre>
-<h3 id="3-栈实现队列"><a href="#3-栈实现队列" class="headerlink" title="3.栈实现队列"></a>3.栈实现队列</h3><p>题目描述：请你仅使用两个栈实现先入先出队列。队列应当支持一般队列的支持的所有操作（push、pop、peek、empty）。<br>解：有两种方法，在push或者pop中进行解决，考虑在push中进行解决的话，我们就要把栈的顺序倒过来，每次入栈后，把栈里元素颠倒后再存入，栈就变成队列了。具体操作为：先把栈1的元素全部出栈，并进到栈2中，此时再把要入栈的当前元素入栈2，再把所有栈2的元素倒入栈1中，这样当前元素就在栈1的最底下，实现了队列的先进先出，后进后出的效果了。之后pop正常出栈即可。其余peek与empty都正常操作。</p>
-<p>代码实现：</p>
-<pre><code>class MyQueue &#123;
-    private Deque&lt;Integer&gt; stack1;
-    private Deque&lt;Integer&gt; stack2;
-    private int front;
-    /** Initialize your data structure here. */
-    public MyQueue() &#123;
-        stack1 = new LinkedList&lt;Integer&gt;();
-        stack2 = new LinkedList&lt;Integer&gt;();
-    &#125;
-
-    /** Push element x to the back of queue. */
-    public void push(int x) &#123;
-        if(stack1.isEmpty())
-            front = x;
-        while(!stack1.isEmpty())
-            stack2.push(stack1.pop());
-        stack2.push(x);
-        while(!stack2.isEmpty())
-            stack1.push(stack2.pop());
-    &#125;
-
-    /** Removes the element from in front of queue and returns that element. */
-    public int pop() &#123;
-        int res = front;
-        stack1.pop();
-        if (!stack1.isEmpty())
-            front = stack1.peek();
-        return res;
-    &#125;
-
-    /** Get the front element. */
-    public int peek() &#123;
-        return front;
-    &#125;
-
-    /** Returns whether the queue is empty. */
-    public boolean empty() &#123;
-        return stack1.isEmpty();
-    &#125;
-&#125;</code></pre>
+        if (page + i &lt;= totalPage) &#123;
+            pages.add(page + i);
+        &#125;
+    &#125;</code></pre>
+<p>首先，默认进入第一页，for循环3次，先展示4页，然后page每次改变后，如果page-i &gt; 0，就把page-i从头部添加，如果page+i &lt; 页面总数，就把page+i从尾部添加。以第一页为例，page=1，此时，list={1,2,3,4}；再以第四页为例，page=4，此时list={1,2,3,4,5,6,7}；再以第七页为例，page=7,此时list={4,5,6,7,8,9,10}，最多7页。</p>
+<p>后续改进：使用pagehelper</p>
+<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>将cookie遍历放在拦截器中，每次功能跳转时都会进行一次cookie的遍历，不用再手动重复写相同代码</p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>自定义异常类，异常类继承自RunTimeException，再定义异常状态码的枚举类，枚举类记录常见的异常状态码，然后自定义的异常类在构造方法中调用异常状态码的枚举类，每次遇到异常时就在前端抛出，一些常见的异常包括（当前操作需要登录、输入内容不能为空、你回复的评论不在等）</p>
+<h2 id="回复-评论模块"><a href="#回复-评论模块" class="headerlink" title="回复/评论模块"></a>回复/评论模块</h2><p>首先根据数据类型判断是回复还是评论，然后插入数据，并刷新回复/评论数，并在前端显示。</p>
+<h2 id="回复通知模块"><a href="#回复通知模块" class="headerlink" title="回复通知模块"></a>回复通知模块</h2><p>在数据库建立通知消息表，在回复/评论模块中，插入回复/评论数据后，再在消息通知表中插入数据，并返回前端页面</p>
+<h2 id="问题搜索模块"><a href="#问题搜索模块" class="headerlink" title="问题搜索模块"></a>问题搜索模块</h2><p>使用mysql的正则匹配 regexp</p>
+<pre><code>select * from QUESTION
+        &lt;where&gt;
+            &lt;if test=&quot;search != null&quot;&gt;
+                and title regexp #&#123;search&#125;
+            &lt;/if&gt;
+        &lt;/where&gt;
+        order by gmt_create desc limit #&#123;page&#125;, #&#123;size&#125;</code></pre>
+<p>后续改进：使用elasticsearch</p>
 
       
 
@@ -359,7 +279,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据结构 LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -415,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/25/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-java%E6%A0%881/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/05/02/%E5%9C%A8%E7%BA%BF%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -429,18 +349,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          matlab实现图片插值缩放
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/20/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%981046/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode的那些事儿-题1046</div>
+    <a href="/2021/04/04/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法中的子序列问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
