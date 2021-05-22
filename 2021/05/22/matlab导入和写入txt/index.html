@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>LeetCode的那些事儿-题703 | HuangXun&#39;s Blog</title>
+  <title>matlab导入和写入txt | HuangXun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我打算按照LeetCode的各种题型来刷，把简单的题型都过一遍，正好还可以复习下数据结构。这次是堆结构，题目也都是用的堆来解的。 题目介绍703. 数据流中的第K大元素难度：简单 设计一个找到数据流中第K大元素的类（class）。注意是排序后的第K大元素，不是第K个不同的元素。 你的KthLargest类需要一个同时接收整数k和整数数组nums的构造器，它包含数据流中的初始元素。每次调用KthLa">
+  <meta name="description" content="今天用matlab操作txt数据的时候，发现导入和写入还是有点技巧的，所以在这里记录一下，以供日后参考。 matlab导入txt文本 load()导入  1data &#x3D; load(&#39;approved_example.txt&#39;);    textread()导入  12%这个方法需要先知道数据的列数，如这里的数据是三列，那么就是三个%n[data1, data2, data">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode的那些事儿-题703">
-<meta property="og:url" content="http://example.com/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%98703/index.html">
+<meta property="og:title" content="matlab导入和写入txt">
+<meta property="og:url" content="http://example.com/2021/05/22/matlab%E5%AF%BC%E5%85%A5%E5%92%8C%E5%86%99%E5%85%A5txt/index.html">
 <meta property="og:site_name" content="HuangXun&#39;s Blog">
-<meta property="og:description" content="我打算按照LeetCode的各种题型来刷，把简单的题型都过一遍，正好还可以复习下数据结构。这次是堆结构，题目也都是用的堆来解的。 题目介绍703. 数据流中的第K大元素难度：简单 设计一个找到数据流中第K大元素的类（class）。注意是排序后的第K大元素，不是第K个不同的元素。 你的KthLargest类需要一个同时接收整数k和整数数组nums的构造器，它包含数据流中的初始元素。每次调用KthLa">
+<meta property="og:description" content="今天用matlab操作txt数据的时候，发现导入和写入还是有点技巧的，所以在这里记录一下，以供日后参考。 matlab导入txt文本 load()导入  1data &#x3D; load(&#39;approved_example.txt&#39;);    textread()导入  12%这个方法需要先知道数据的列数，如这里的数据是三列，那么就是三个%n[data1, data2, data">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-19T14:12:50.000Z">
-<meta property="article:modified_time" content="2020-10-19T14:34:11.020Z">
+<meta property="article:published_time" content="2021-05-22T11:43:24.000Z">
+<meta property="article:modified_time" content="2021-05-22T12:04:59.652Z">
 <meta property="article:author" content="HuangXun">
-<meta property="article:tag" content="算法 数据结构">
+<meta property="article:tag" content="matlab">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="HuangXun&#39;s Blog" type="application/atom+xml">
@@ -156,14 +156,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LeetCode的那些事儿-题703" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-matlab导入和写入txt" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode的那些事儿-题703
+      matlab导入和写入txt
     </h1>
   
 
@@ -179,50 +179,30 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%98703/" class="archive-article-date">
-  	<time datetime="2020-10-19T14:12:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-19</time>
+        <a href="/2021/05/22/matlab%E5%AF%BC%E5%85%A5%E5%92%8C%E5%86%99%E5%85%A5txt/" class="archive-article-date">
+  	<time datetime="2021-05-22T11:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我打算按照LeetCode的各种题型来刷，把简单的题型都过一遍，正好还可以复习下数据结构。这次是堆结构，题目也都是用的堆来解的。</p>
-<h2 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h2><h3 id="703-数据流中的第K大元素"><a href="#703-数据流中的第K大元素" class="headerlink" title="703. 数据流中的第K大元素"></a>703. 数据流中的第K大元素</h3><p>难度：简单</p>
-<p>设计一个找到数据流中第K大元素的类（class）。注意是排序后的第K大元素，不是第K个不同的元素。</p>
-<p>你的<code>KthLargest</code>类需要一个同时接收整数<code>k</code>和整数数组<code>nums</code>的构造器，它包含数据流中的初始元素。每次调用<code>KthLargest.add</code>，返回当前数据流中第K大的元素。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre><code>int k = 3;
-int[] arr = [4,5,8,2];
-KthLargest kthLargest = new KthLargest(3, arr);
-kthLargest.add(3);   // returns 4
-kthLargest.add(5);   // returns 5
-kthLargest.add(10);  // returns 5
-kthLargest.add(9);   // returns 8
-kthLargest.add(4);   // returns 8</code></pre>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p><code>nums</code>的长度≥<code>k-1</code>且<code>k</code>≥ 1</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>这道题要求我们写出一个类，类中的方法可以返回排序后的第k个元素，即可以添加新元素，并且每次输出从小到大第k个元素。使用堆来解的话，就需要使用最小堆。我们首先声明一个最小堆和一个整型变量k，在构造器中定义它们，并在构造器中提前将所有元素都使用add方法添加进堆。值得注意的是，构造器中的堆定义里要注明堆的大小为k，因为我们需要在add方法中对入堆元素进行限制：<strong>如果选中元素大于堆顶元素（堆顶元素此时是最小元素），则将堆顶元素排出，选中元素入堆</strong>。按照这样的规则，小于堆顶的元素不进去，大于的话则剔除对端元素后把选中的入堆，这样的话k个容量的最小堆中，堆顶的元素就一定是从小到大第k个元素。另外还有一个点需要注意的是，可能k会给的很大，导致在构造器中把所有元素入堆后堆容量依旧没满。我们需要在add方法中添加相应的条件。</p>
-<h3 id="代码-java"><a href="#代码-java" class="headerlink" title="代码(java)"></a>代码(java)</h3><pre><code>class KthLargest &#123;
-    private PriorityQueue&lt;Integer&gt; queue;
-    private int k;
-    public KthLargest(int k, int[] nums) &#123;
-        this.k = k;
-        queue = new PriorityQueue&lt;&gt;(k);
-        for(int e : nums) add(e);
-    &#125;
+        <p>今天用matlab操作txt数据的时候，发现导入和写入还是有点技巧的，所以在这里记录一下，以供日后参考。</p>
+<h2 id="matlab导入txt文本"><a href="#matlab导入txt文本" class="headerlink" title="matlab导入txt文本"></a>matlab导入txt文本</h2><ol>
+<li>load()导入</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data &#x3D; load(&#39;approved_example.txt&#39;);</span><br></pre></td></tr></table></figure>
 
-    public int add(int val) &#123;
-        if (queue.size() &lt; k) 
-            queue.offer(val);
-        else&#123;
-            if (val &gt; queue.peek())&#123;
-                queue.poll();
-                queue.offer(val);
-            &#125;
-        &#125;
-        return queue.peek();
-    &#125;
-&#125;</code></pre>
-<p>###后记<br>这道题我依旧是看了别的大神的题解才会做的。另外，我觉得这个方法比较新的一点是在构造器中就能够想到用add方法，也许大神是先想到add方法，再来想构造器的？换我我肯定想不出来…</p>
+
+<ol start="2">
+<li>textread()导入</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%这个方法需要先知道数据的列数，如这里的数据是三列，那么就是三个%n</span><br><span class="line">[data1, data2, data3] &#x3D; txtread(&#39;approved_example.txt&#39;, &#39;%n%n%n&#39;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="matlab写入txt文本"><a href="#matlab写入txt文本" class="headerlink" title="matlab写入txt文本"></a>matlab写入txt文本</h2><p>我用的写入数据的方法是类似C的文件指针写入，matlab中有fopen函数，使用该函数定义一个句柄来操作文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fp &#x3D; fopen(&#39;data.txt&#39;,&#39;a&#39;);</span><br><span class="line">[m,n]&#x3D;size(data5);</span><br><span class="line"> for i&#x3D;1:1:m</span><br><span class="line">    for j&#x3D;1:1:n</span><br><span class="line">       if j&#x3D;&#x3D;n</span><br><span class="line">         fprintf(fp,&#39;%g\n&#39;,data5(i,j));</span><br><span class="line">      else</span><br><span class="line">        fprintf(fp,&#39;%g\t&#39;,data5(i,j));</span><br><span class="line">       end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">fclose(fp);</span><br></pre></td></tr></table></figure>
+
+<p>注意，这种方法操作数据写入文本中，需要使用for循环遍历来保证原矩阵数据可以按照原格式写入到txt中，否则就会造成数据挤在一起的情况。</p>
 
       
 
@@ -257,7 +237,7 @@ kthLargest.add(4);   // returns 8</code></pre>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法 数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">matlab</a>
         		</li>
       		
 		</ul>
@@ -313,7 +293,7 @@ kthLargest.add(4);   // returns 8</code></pre>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%98703/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/05/22/matlab%E5%AF%BC%E5%85%A5%E5%92%8C%E5%86%99%E5%85%A5txt/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,18 +307,9 @@ kthLargest.add(4);   // returns 8</code></pre>
   
 <nav id="article-nav">
   
-    <a href="/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E5%89%91%E6%8C%87%20Offer%2040/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          LeetCode的那些事儿-剑指 Offer 40
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/18/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%98538/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode的那些事儿-题538</div>
+    <a href="/2021/05/02/%E5%9C%A8%E7%BA%BF%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在线论坛系统开发笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   

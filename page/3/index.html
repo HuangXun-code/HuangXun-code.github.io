@@ -155,6 +155,107 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-matlab实现图片插值缩放" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/">matlab实现图片插值缩放</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/" class="archive-article-date">
+  	<time datetime="2020-11-15T13:13:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很久没更新博客了，这段时间没空刷leetcode题，在做实验室的课题，随便帮老师做一些杂事，前几天便涉及到了一个用插值法来做缩放图片的小任务，帮老师解决了下，同时也学到了一些图片缩放的知识，便想着把学到的东西记录下来供日后回顾。</p>
+<h2 id="图片缩放"><a href="#图片缩放" class="headerlink" title="图片缩放"></a>图片缩放</h2><p>图片缩放，分为图片缩小和图片放大。众所周知，图片是由一个个的像素点构成的，分辨率越高的图，像素点越多。有时根据不同的需求，我们需要将图片放大或者缩小。那么如何实现呢？很简单，对于缩小图片而言，我们少取一些像素点，所构成的图像素点变少，不就把图片变小了嘛；同理，对于放大图片，我们把空缺的地方补上像素点，得到的图就是放大后的图了。因此，采样法与插值法都是专注于如何取像素点与补像素点。我看到网上有博客说图片缩小称为降采样，放大则称为升采样或者插值。我个人觉得这是不准确的，因为插值法可以用来图片放大，也可以用来缩小图片；同样采样法不光能用在图片缩小，也能用在图片放大（虽然我没找到采样法放大图的具体方法）。</p>
+<h3 id="降采样缩小图片"><a href="#降采样缩小图片" class="headerlink" title="降采样缩小图片"></a>降采样缩小图片</h3><p>网上有降采样的例子，我就直接摘抄代码了，思想其实就是间隔若干行/列来取像素点。以一幅16<em>16的图片为例，有16</em>16=256个像素点，我们可以采用每行隔一个像素点后取值，再每隔一行继续取，即取(1,1),(1,3),…(1,255),(3,1),(3,3)…，将其组合后，就得到8*8=64的图片了，这即是缩小两倍的降采样图。</p>
+<p>代码实现：</p>
+<pre><code>I=imread(&#39;example.jpg&#39;);
+I1=I(1:2:end,1:2:end);%每2位采集1位
+I2=I(1:4:end,1:4:end);%每4位采集1位
+I3=I(1:8:end,1:8:end);%每8位采集1位
+subplot(221), imshow(I),title(&#39;原图&#39;);    
+subplot(222), imshow(I1),title(&#39;缩小2倍&#39;);    
+subplot(223), imshow(I2),title(&#39;缩小4倍&#39;);
+subplot(224), imshow(I3),title(&#39;缩小8倍&#39;);</code></pre>
+<h3 id="插值法放大-缩小图片"><a href="#插值法放大-缩小图片" class="headerlink" title="插值法放大/缩小图片"></a>插值法放大/缩小图片</h3><p>插值法的思想是基于目标(想要放大/缩小的图)分辨率中的像素点，按照缩放关系映射到原图片中，寻找原图中的像素点，然后通过原图中的像素点进行插值，找到目标图中要放入的点位置，将像素点填入。常见的图像插值算法包括最近邻插值（Nearest-neighbor）、双线性插值（Bilinear）、双立方插值（bicubic），这三种插值方法metlab都有集成，我就直接贴代码了。</p>
+<p>代码实现：</p>
+<pre><code>I=imread(&#39;example.jpg&#39;);
+I1=imresize(I1,2,&#39;nearest&#39;);%最近邻插值放大2倍
+I2=imresize(I1,2,&#39;bilinear&#39;);%双线性插值放大2倍
+I3=imresize(I1,2,&#39;bicubic&#39;);%双立方插值放大2倍
+subplot(221), imshow(I),title(&#39;原图&#39;);    
+subplot(222), imshow(I1),title(&#39;最近邻插值&#39;);    
+subplot(223), imshow(I2),title(&#39;双线性插值&#39;);
+subplot(224), imshow(I3),title(&#39;双立方插值&#39;);</code></pre>
+<h3 id="总结：一些疑问"><a href="#总结：一些疑问" class="headerlink" title="总结：一些疑问"></a>总结：一些疑问</h3><p>如何比较插值或者采样的好坏呢？我看到一篇文献里比较不同插值缩放图片的步骤里，效果图里，目标图与原图是比例一致，大小相同的，我很好奇这样是怎么做的？</p>
+<p><img src="https://img.imgdb.cn/item/601abb023ffa7d37b30cc4cc.png" alt="Aaron Swartz"></p>
+<p>按理说图片放大或者缩小后，由于大小问题，确实不好与原图比较效果，那文章是如何把图片调整到同一比例的呢？那只能是对缩小后的图又用一次放大方法使其与原图相同了，那这样使用到的插值或者采样二次不会对结果造成误差嘛？另外，windows系统里自带的图片放大缩小功能又是使用的什么方法呢？搞不懂。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">matlab 图片 插值</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/15/matlab%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%8F%92%E5%80%BC%E7%BC%A9%E6%94%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LeetCode的那些事儿-java栈1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -970,6 +1071,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">面试 计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
               </li>
             
             <div class="clearfix"></div>

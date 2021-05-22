@@ -16,7 +16,7 @@
 <meta property="og:description" content="记录下自己开发论坛项目的一些知识点，以供日后复习。 登录模块实现采用github的Oauth授权机制+okhttp模拟get&#x2F;post实现登录功能 用户点击登录后，服务端首先调用github接口获取授权，授权成功后使用回调函数，跳转至我们申请的redirect_uri，跳转回时会携带一个code 服务端写好api接收code，并调用github的access_token接口，模拟post请求访问g">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-02T07:11:53.000Z">
-<meta property="article:modified_time" content="2021-05-03T07:10:59.577Z">
+<meta property="article:modified_time" content="2021-05-07T07:26:52.385Z">
 <meta property="article:author" content="HuangXun">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -190,7 +190,7 @@
         <p>记录下自己开发论坛项目的一些知识点，以供日后复习。</p>
 <h2 id="登录模块实现"><a href="#登录模块实现" class="headerlink" title="登录模块实现"></a>登录模块实现</h2><h3 id="采用github的Oauth授权机制-okhttp模拟get-post实现登录功能"><a href="#采用github的Oauth授权机制-okhttp模拟get-post实现登录功能" class="headerlink" title="采用github的Oauth授权机制+okhttp模拟get/post实现登录功能"></a>采用github的Oauth授权机制+okhttp模拟get/post实现登录功能</h3><ol>
 <li>用户点击登录后，服务端首先调用github接口获取授权，授权成功后使用回调函数，跳转至我们申请的redirect_uri，跳转回时会携带一个code</li>
-<li>服务端写好api接收code，并调用github的access_token接口，模拟post请求访问github，把返回的code再传递回去</li>
+<li>服务端写好api接收code，并调用github的access_token接口，模拟post请求访问github，把返回的code再传递回去，请求access_token</li>
 <li>之后请求会返回一个access_token</li>
 <li>然后服务端再调用github的user接口，模拟get请求，通过携带accesstoken，来获取github的用户信息</li>
 </ol>
@@ -348,6 +348,15 @@ else&#123;
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/05/22/matlab%E5%AF%BC%E5%85%A5%E5%92%8C%E5%86%99%E5%85%A5txt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          matlab导入和写入txt
+        
+      </div>
+    </a>
   
   
     <a href="/2021/04/04/%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
@@ -534,6 +543,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">面试 计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
               </li>
             
             <div class="clearfix"></div>
