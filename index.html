@@ -67,7 +67,7 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">Archives</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">文章目录</a>
     			
             
     			
@@ -154,6 +154,97 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Java绘制UML类图笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/26/Java%E7%BB%98%E5%88%B6UML%E7%B1%BB%E5%9B%BE%E7%AC%94%E8%AE%B0/">Java绘制UML类图笔记</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/06/26/Java%E7%BB%98%E5%88%B6UML%E7%B1%BB%E5%9B%BE%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2021-06-26T07:35:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于工作原因，需要绘制之前学过的UML类图，所以自己重新捡起了，在复习UML的同时把相关内容记录下午，供日后回顾。</p>
+<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><img src="https://pic.imgdb.cn/item/60d6dc7f844ef46bb261eab8.png" alt="avatar"></p>
+<h3 id="类图结构"><a href="#类图结构" class="headerlink" title="类图结构"></a>类图结构</h3><p>最上面一层是类名，如果是<strong>抽象类</strong>的话，字体需要是斜体；中间一层是属性，即成员变量；最下一层是方法；属性命名格式一般是 名字 ：数据类型；方法命名格式一般是 名字 ： 返回类型。可根据需求将类设置为<strong>接口</strong>。常见的类图如下所示。</p>
+<p><img src="https://pic.imgdb.cn/item/60d6df51844ef46bb27b9461.png" alt="avatar"></p>
+<h3 id="属性和方法的访问权限"><a href="#属性和方法的访问权限" class="headerlink" title="属性和方法的访问权限"></a>属性和方法的访问权限</h3><p><code>+</code>代表<code>public</code>， <code>-</code>代表<code>private</code>， <code>#</code>代表<code>protected</code>， 什么都没有的话代表<code>default</code></p>
+<h2 id="类与类之间的关联"><a href="#类与类之间的关联" class="headerlink" title="类与类之间的关联"></a>类与类之间的关联</h2><p>在UML类图中，常见的有以下几种关系：泛化(Generalization)、依赖（Dependency）、实现（Realization）、关联（Association）、聚合（Aggregation）、组合（Composition）等，其中前三种我用的较多,介绍前三种。</p>
+<h3 id="泛化关系-Generalization"><a href="#泛化关系-Generalization" class="headerlink" title="泛化关系(Generalization)"></a>泛化关系(Generalization)</h3><p>泛化关系也就是最常见的继承关系，类与类之间的继承。某个类继承了某个类，用实线+空心三角形表示，指向谁，代表继承了那个类。<br><img src="https://pic.imgdb.cn/item/60d6e0dc844ef46bb28aebcc.png" alt="avatar"></p>
+<h3 id="依赖关系（Dependency）"><a href="#依赖关系（Dependency）" class="headerlink" title="依赖关系（Dependency）"></a>依赖关系（Dependency）</h3><p>依赖关系，体现在某个类的成员变量或者方法，需要用到另一个类的成员变量或方法，又或者需要用到另一个类的实例，这样依赖另一个类的服务时，代表依赖关系，用虚线+箭头表示，指向谁代表依赖于那个类。</p>
+<p><img src="https://pic.imgdb.cn/item/60d6e328844ef46bb29f75ee.png" alt="avatar"></p>
+<h3 id="实现关系（Realization）"><a href="#实现关系（Realization）" class="headerlink" title="实现关系（Realization）"></a>实现关系（Realization）</h3><p>实现关系，表示一个类实现了某个接口，用虚线+空心三角形表示，指向谁就代表实现那个接口。</p>
+<p><img src="https://pic.imgdb.cn/item/60d6e300844ef46bb29e0f44.png" alt="avatar"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">UML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/06/26/Java%E7%BB%98%E5%88%B6UML%E7%B1%BB%E5%9B%BE%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-matlab导入和写入txt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1380,287 +1471,6 @@ git config --global http.sslCAInfo &quot;C:\Program Files\Git\mingw64\ssl\cert.p
 
 
   
-    <article id="post-某大厂笔试题：设计一个内存文件系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/16/%E6%9F%90%E5%A4%A7%E5%8E%82%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%86%85%E5%AD%98%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">某大厂笔试题：设计一个内存文件系统</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/03/16/%E6%9F%90%E5%A4%A7%E5%8E%82%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%86%85%E5%AD%98%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2021-03-16T15:05:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前几天面试某大厂后台开发岗实习，上来就是笔试，抛出一道笔试题给我做，题目真挺难，做半天没做出来，而且有点搞心态的是输入输出都要自己写，所以印象比较深刻，记录下这道题以及解法，以供日后参考。</p>
-<h2 id="设计一个内存文件系统，模拟以下功能："><a href="#设计一个内存文件系统，模拟以下功能：" class="headerlink" title="设计一个内存文件系统，模拟以下功能："></a>设计一个内存文件系统，模拟以下功能：</h2><p><code>ls</code>： 以字符串的格式输入一个路径。如果它是一个文件的路径，那么函数返回一个列表，仅包含这个文件的名字。如果它是一个文件夹的的路径，那么返回<strong>该文件夹内</strong>的所有文件和子文件夹的名字。你的返回结果（包括文件和子文件夹）应该按字典序排列。</p>
-<p><code>mkdir</code>：输入一个当前不存在的<strong>文件夹路径</strong>，你需要根据路径名创建一个新的文件夹。如果有上层文件夹路径不存在，那么你也应该将它们全部创建。这个函数的返回类型为 void 。</p>
-<p><code>touch</code>: 输入一个当前不存在的文件绝对路径，根据文件绝对路径，创建文件。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题其实是<strong>leetcode588</strong>的变种，原题要比笔试题更难（Hard类型），增加了写入文本和读取文本的函数，而笔试题简化了，用touch创建文件类似于把写入文本，删减了读取文本的操作。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><strong>leetcode588</strong>中，除了要设计ls和mkdir操作，还有<code>addContentToFile</code>和<code>readContentFromFile</code>，其中，addContentToFile类似于笔试题中的touch操作，只不过笔试题中把它简化了，不需要写入文本内容。</p>
-<p>我先贴leetcode的解题代码，再贴笔试题的解题代码：</p>
-<h3 id="leetcode588：设计文件内存系统"><a href="#leetcode588：设计文件内存系统" class="headerlink" title="leetcode588：设计文件内存系统"></a>leetcode588：设计文件内存系统</h3><pre><code>class FileSystem &#123;
-    class Dir&#123; 
-        /**
-        定义一个文件内部类保存文件与文件夹，两个哈希表相当于每层路径下的文件夹和文件,
-        文件夹类似于树结构
-        */
-        Map&lt;String, Dir&gt; dirs = new HashMap&lt;&gt;();
-        Map&lt;String, String&gt; files = new HashMap&lt;&gt;();
-    &#125;
-
-    Dir root; //根目录路径，可类比磁盘根目录，也就是树的根节点，通过它来访问所有的文件和文件夹，所有方法里都要先获取根节点
-
-    public FileSystem() &#123;
-        root = new Dir();
-    &#125;
-
-    public List&lt;String&gt; ls(String path) &#123;
-        Dir node = root;
-        List&lt;String&gt; files = new ArrayList&lt;&gt;(); //用于返回文件与文件夹的列表
-        if (!path.equals(&quot;/&quot;))&#123; //判断路径是否是根目录，如果不是，则说明是某个具体的文件夹/文件的路径，循环遍历直到进入该目录
-            String[] d = path.split(&quot;/&quot;);
-            for (int i = 1; i &lt; d.length - 1; i++)&#123;// 
-                /**
-                i从1开始，避免了切分后第一个元素为空,e.g.&quot;/a/b/c&quot;切分后，变成[&quot;&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];
-                i循环到倒数第二个，因为这时还不知道最后一个是文件还是文件夹
-                */
-                node = node.dirs.get(d[i]);
-            &#125; 
-            if (node.files.containsKey(d[d.length - 1]))&#123;
-                /**
-                这里有两层含义，一是如果最后路径下的是文件，那判断是否在该路径下,如果在，添加后直接返回
-                二是如果最后路径下是文件夹，那当然不会在文件的哈希表里，就执行else，这样的话只用一个containsKey()就能完成判断
-                */
-                files.add(d[d.length - 1]);
-                return files;
-            &#125;else&#123;
-                node = node.dirs.get(d[d.length - 1]);
-            &#125;
-        &#125;
-         //添加到达的最终目录下的所有文件夹以及文件并返回
-            files.addAll(new ArrayList&lt;&gt;(node.dirs.keySet())); 
-            files.addAll(new ArrayList&lt;&gt;(node.files.keySet())); 
-            Collections.sort(files); //排序成字典序
-            return files;
-
-    &#125;
-
-    public void mkdir(String path) &#123;
-        Dir node = root;
-        String[] d = path.split(&quot;/&quot;);
-        for (int i = 1; i &lt; d.length; i++)&#123; //i从1开始，原因同ls中
-            if (!node.dirs.containsKey(d[i])) //如果该目录不存在，就创建新目录
-                node.dirs.put(d[i], new Dir());
-            node = node.dirs.get(d[i]); //节点指针进入当前文件夹路径
-        &#125;
-    &#125;
-
-    public void addContentToFile(String filePath, String content) &#123;
-        Dir node = root;
-        String[] d = filePath.split(&quot;/&quot;);
-        for (int i = 1; i &lt; d.length - 1; i++)&#123; //i从1开始，原因同ls中
-            node = node.dirs.get(d[i]);
-        &#125;
-        //这里有两层含义，一如果文件不在，就创建新的，并写入内容，二如果文件已存在，就获取原来内容，并追加内容在最后，很妙的写法
-        node.files.put(d[d.length - 1], node.files.getOrDefault(d[d.length - 1], &quot;&quot;) + content);
-    &#125;
-
-    public String readContentFromFile(String filePath) &#123; //这个比较简单，懂了上面几个函数，这个仿照着写，返回最后的文件中的值即可。
-        Dir node = root;
-        String[] d = filePath.split(&quot;/&quot;);
-        for (int i = 1; i &lt; d.length - 1; i++)&#123; 
-            node = node.dirs.get(d[i]);
-        &#125;
-        return node.files.get(d[d.length - 1]);
-    &#125;
-&#125;</code></pre>
-<h3 id="笔试题，内存文件系统"><a href="#笔试题，内存文件系统" class="headerlink" title="笔试题，内存文件系统"></a>笔试题，内存文件系统</h3><pre><code>import java.util.*;
-
-public class Solution &#123;
-
-    static class Dir&#123;
-        /**
-         定义一个文件内部类保存文件与文件夹，两个哈希表相当于每层路径下的文件夹和文件,
-         文件夹类似于树结构
-         */
-        Map&lt;String, Dir&gt; dirs = new HashMap&lt;&gt;();
-        Map&lt;String, String&gt; files = new HashMap&lt;&gt;();
-    &#125;
-
-    static Dir root; //根目录路径，可类比磁盘根目录，也就是树的根节点，通过它来访问所有的文件和文件夹，所有方法里都要先获取根节点
-
-    public Solution() &#123;
-        root = new Dir();
-        System.out.println(&quot;yes&quot;);
-    &#125;
-
-    static public List&lt;String&gt; ls(String path) &#123;
-        if (path == null) //添加了路径为空的结果
-            return new ArrayList&lt;&gt;();
-        Dir node = root;
-        List&lt;String&gt; files = new ArrayList&lt;&gt;(); //用于返回文件与文件夹的列表
-        if (!path.equals(&quot;/&quot;))&#123; //判断路径是否是根目录，如果不是，则说明是某个具体的文件夹/文件的路径，循环遍历直到进入该目录
-            String[] d = path.split(&quot;/&quot;);
-            for (int i = 1; i &lt; d.length - 1; i++)&#123;//
-                /**
-                 i从1开始，避免了切分后第一个元素为空,e.g.&quot;/a/b/c&quot;切分后，变成[&quot;&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];
-                 i循环到倒数第二个，因为这时还不知道最后一个是文件还是文件夹
-                 */
-                node = node.dirs.get(d[i]);
-            &#125;
-            if (node.files.containsKey(d[d.length - 1]))&#123;
-                /**
-                 这里有两层含义，一是如果最后路径下的是文件，那判断是否在该路径下,如果在，添加后直接返回
-                 二是如果最后路径下是文件夹，那当然不会在文件的哈希表里，就执行else，这样的话只用一个containsKey()就能完成判断
-                 */
-                files.add(d[d.length - 1]);
-                return files;
-            &#125;else&#123;
-                node = node.dirs.get(d[d.length - 1]);
-            &#125;
-        &#125;
-        //添加到达的最终目录下的所有文件夹以及文件并返回
-        files.addAll(new ArrayList&lt;&gt;(node.dirs.keySet()));
-        files.addAll(new ArrayList&lt;&gt;(node.files.keySet()));
-        Collections.sort(files); //排序成字典序
-        return files;
-
-    &#125;
-
-    static public void mkdir(String path) &#123;
-        Dir node = root;
-        String[] d = path.split(&quot;/&quot;);
-        for (int i = 1; i &lt; d.length; i++)&#123; //i从1开始，原因同ls中
-            if (node == null || !node.dirs.containsKey(d[i])) //如果该目录不存在，就创建新目录
-                node.dirs.put(d[i], new Dir());
-            node = node.dirs.get(d[i]); //节点指针进入当前文件夹路径
-        &#125;
-    &#125;
-
-    static public void touch(String filePath) &#123;
-        Dir node = root;
-        String[] d = filePath.split(&quot;/&quot;);
-        for (int i = 1; i &lt; d.length - 1; i++)&#123; //i从1开始，原因同ls中
-            node = node.dirs.get(d[i]);
-        &#125;
-        node.files.put(d[d.length - 1], &quot;&quot;);
-    &#125;
-
-
-    public static void main(String[] args)&#123;
-        /**
-        PriorityQueue&lt;Integer&gt; queue = new PriorityQueue&lt;&gt;(new Comparator&lt;Integer&gt;() &#123;
-            @Override
-            public int compare(Integer o1, Integer o2) &#123;
-                return o2 - o1;
-            &#125;
-        &#125;);
-        */
-        new Solution(); //构造器
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); //先声明输入的命令有几条
-        sc.nextLine(); //去掉多余空行
-        String order = null;
-        String path = null;
-        while(n &gt; 0)&#123;
-            String s = sc.nextLine(); //输入的具体命令，人为规定下，命令后接空格再接路径，例如ls / 、mkdir /a/b/c 等
-            String[] s1 = s.split(&quot; &quot;);
-            order = s1[0];
-            if (s1.length &gt; 1)&#123;
-                path = s1[1];
-                System.out.println(path);
-            &#125;
-
-            n--;
-
-            switch (order)&#123;
-                case &quot;ls&quot;:
-                    System.out.println(ls(path).toString());
-                    break;
-                case &quot;mkdir&quot;:
-                    mkdir(path);
-                    break;
-                case &quot;touch&quot;:
-                    touch(path);
-                    break;
-
-            &#125;
-        &#125;
-        &#125;
-
-
-    &#125;</code></pre>
-<h2 id="一些总结"><a href="#一些总结" class="headerlink" title="一些总结"></a>一些总结</h2><ol>
-<li>笔试题的代码是我自己写的，因为大厂有自己的写代码工具，还要求我自己写下输入输出，我是按照自己的想法来写的，不知道符不符合要求；</li>
-<li>好久没有写过输入输出了，做多了leetcode的缺点可能就在这，没有那些专业写OJ题的选手强，记得第一次笔试的时候，连输入输出都要想半天，太菜了，现在想想，这个还是要记一下，一些基本的输入规范；</li>
-<li>这道题是模拟的操作系统的文件指令操作，所以不可能做到百分百还原linux下的指令，因此一些隐藏的前提可以了解下，或者与面试官沟通下，例如，指令可以规定统一小写；文件可以暂定为文本文件等，便于模拟。</li>
-<li>像我第一次做这样的题，连题目都要看半天才看懂，但实际上做出来，发现也不是很难，但类型太过于新颖了，类似leetcode中LRU模拟的题，没做过就难以下手，做过的话就有印象，不急，慢慢来吧，take it easy！</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java 算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/16/%E6%9F%90%E5%A4%A7%E5%8E%82%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%86%85%E5%AD%98%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1729,7 +1539,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">Archives</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">文章目录</a></li>
       
         
       
@@ -1819,6 +1629,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">UML</a>
               </li>
             
             <div class="clearfix"></div>
