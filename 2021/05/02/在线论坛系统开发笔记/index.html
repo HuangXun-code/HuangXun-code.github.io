@@ -16,7 +16,7 @@
 <meta property="og:description" content="记录下自己开发论坛项目的一些知识点，以供日后复习。 登录模块实现采用github的Oauth授权机制+okhttp模拟get&#x2F;post实现登录功能 用户点击登录后，服务端首先调用github接口获取授权，授权成功后使用回调函数，跳转至我们申请的redirect_uri，跳转回时会携带一个code 服务端写好api接收code，并调用github的access_token接口，模拟post请求访问g">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-02T07:11:53.000Z">
-<meta property="article:modified_time" content="2021-05-07T07:26:52.385Z">
+<meta property="article:modified_time" content="2021-08-07T06:52:30.008Z">
 <meta property="article:author" content="HuangXun">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -232,8 +232,10 @@ else&#123;
     &#125;</code></pre>
 <p>首先，默认进入第一页，for循环3次，先展示4页，然后page每次改变后，如果page-i &gt; 0，就把page-i从头部添加，如果page+i &lt; 页面总数，就把page+i从尾部添加。以第一页为例，page=1，此时，list={1,2,3,4}；再以第四页为例，page=4，此时list={1,2,3,4,5,6,7}；再以第七页为例，page=7,此时list={4,5,6,7,8,9,10}，最多7页。</p>
 <p>后续改进：使用pagehelper</p>
+<h2 id="整体数据库表设计"><a href="#整体数据库表设计" class="headerlink" title="整体数据库表设计"></a>整体数据库表设计</h2><p>4张表，USER表记录用户登录的信息、QUESTION记录问题内容与发布者、COMMENT记录评论、NOTIFICATION记录通知</p>
 <h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>将cookie遍历放在拦截器中，每次功能跳转时都会进行一次cookie的遍历，不用再手动重复写相同代码</p>
 <h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>自定义异常类，异常类继承自RunTimeException，再定义异常状态码的枚举类，枚举类记录常见的异常状态码，然后自定义的异常类在构造方法中调用异常状态码的枚举类，每次遇到异常时就在前端抛出，一些常见的异常包括（当前操作需要登录、输入内容不能为空、你回复的评论不在等）</p>
+<h2 id="多级评论"><a href="#多级评论" class="headerlink" title="多级评论"></a>多级评论</h2><p>创建多级评论mysql表，一级评论是对问题的评论，二级评论是对一级评论的评论。以一级二级评论为例，每条记录，首先包含parentID，代表该评论所属的上一级的ID，如一级评论的parentID是问题的ID，二级评论的parentID是一级评论的ID。此外，每条记录还包含评论人的ID，创建时间、修改时间，以及内容。</p>
 <h2 id="回复-评论模块"><a href="#回复-评论模块" class="headerlink" title="回复/评论模块"></a>回复/评论模块</h2><p>首先根据数据类型判断是回复还是评论，然后插入数据，并刷新回复/评论数，并在前端显示。</p>
 <h2 id="回复通知模块"><a href="#回复通知模块" class="headerlink" title="回复通知模块"></a>回复通知模块</h2><p>在数据库建立通知消息表，在回复/评论模块中，插入回复/评论数据后，再在消息通知表中插入数据，并返回前端页面</p>
 <h2 id="问题搜索模块"><a href="#问题搜索模块" class="headerlink" title="问题搜索模块"></a>问题搜索模块</h2><p>使用mysql的正则匹配 regexp</p>
