@@ -155,6 +155,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习算法-决策树介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-%E5%86%B3%E7%AD%96%E6%A0%91%E4%BB%8B%E7%BB%8D/">机器学习算法-决策树介绍</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-%E5%86%B3%E7%AD%96%E6%A0%91%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
+  	<time datetime="2021-09-09T03:05:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="决策树介绍"><a href="#决策树介绍" class="headerlink" title="决策树介绍"></a>决策树介绍</h2><p>决策树是机器学习里非常常见的分类算法。</p>
+<p>具体而言，决策树模型会根据大量的历史样本数据，运用算法选择合适的属性作为节点，最终构造出类似流程图的树状结构。决策树的基本结构包含根节点、子节点、叶子节点。而决策树用到的算法，本质就类似于if else的判断语句，根据某个判断条件产生新的分支。当分到叶子节点，也就是最底部的节点，已经不能再分下去，就是决策的结果。</p>
+<h2 id="决策树具体流程"><a href="#决策树具体流程" class="headerlink" title="决策树具体流程"></a>决策树具体流程</h2><p>使用决策树做分类的每一个步骤都很重要，首先要收集足够多的数据，如果数据收集不到位，将会导致没有足够的特征去构建错误率低的决策树。数据特征充足，但是不知道用哪些特征好，也会导致最终无法构建出分类效果好的决策树。</p>
+<p>决策树构建过程可以概括为3个步骤：特征选择、决策树的生成和决策树的剪枝。<br>其中，决策树生成的算法可分为三种：<strong>ID3（信息增益）</strong>，<strong>C4.5（信息增益率）</strong>以及 <strong>CART（基尼系数）</strong>。每种算法都是为了解决相同的问题：</p>
+<ol>
+<li>选择哪个属性作为根节点</li>
+<li>选择那些属性作为子节点</li>
+<li>什么时候停止得到决策的结果，即叶子节点</li>
+</ol>
+<p>（1）这里我们使用ID3算法为例做演示,数据如下：</p>
+<p>$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$</p>
+<p><img src="https://pic.imgdb.cn/item/6139922c44eaada73975010a.png" alt="avatar"></p>
+<p>ID3算法的核心是在决策树各个节点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根节点开始，对节点计算所有可能的特征的信息增益，选择信息增益最大的特征作为节点的特征，由该特征的不同取值建立子节点；再对子节点递归地调用以上方法，构建决策树；直到所有特征的信息增益均很小或没有特征可以选择为止。最后得到一个决策树。</p>
+<p>为了计算信息增益，首先需要计算熵，熵的计算公式如下：</p>
+<p><img src="https://pic.imgdb.cn/item/613992d044eaada73975f363.png" alt="avatar"></p>
+<p>其中，n是样本总数，Xi是第i类样本，p(Xi)是选择该样本的概率，D代表全部样本数。所以计算得到：</p>
+<p><img src="https://pic.imgdb.cn/item/6139932d44eaada739768975.png" alt="avatar"></p>
+<p>之后再计算信息增益，信息增益的计算公式如下：</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-%E5%86%B3%E7%AD%96%E6%A0%91%E4%BB%8B%E7%BB%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java绘制UML类图笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -755,7 +849,7 @@ else&#123;
 <h3 id="4-HTTP请求的方法"><a href="#4-HTTP请求的方法" class="headerlink" title="4. HTTP请求的方法"></a>4. HTTP请求的方法</h3><p>常见的有POST、GET、DELETE、PUT</p>
 <p>GET与POST区别？</p>
 <h3 id="5-从浏览器中输入URL地址到显示主页的过程？"><a href="#5-从浏览器中输入URL地址到显示主页的过程？" class="headerlink" title="5.从浏览器中输入URL地址到显示主页的过程？"></a>5.从浏览器中输入URL地址到显示主页的过程？</h3><p>DNS解析：将域名解析成IP地址；<br>TCP连接：三次握手<br>发送http请求<br>服务器处理请求并返回http报文<br>浏览器解析渲染页面显示在浏览器<br>客户关闭网页，断开连接：TCP四次挥手</p>
-<h3 id="6-cookie、session、token的区别"><a href="#6-cookie、session、token的区别" class="headerlink" title="6.cookie、session、token的区别"></a>6.cookie、session、token的区别</h3><p>cookie：是客户端保存用户信息的一种机制，用户第一次访问网络服务时，服务器生成一个键值对格式的数据作为身份标识，放到cookie字段里，再把cookie发送到用户浏览器保存在本地，下一次用户访问同一服务器的时候，浏览器就会把cookie放在请求报文里，服务端收到请求报文后发现cookie中字段有值，就能根据值识别用户的身份；<br>session：session是另一种记录服务端和客户端会话的机制，服务器会用session把用户的信息临时保存在服务器上，用户离开网站后session会被销毁，相比cookie来说更安全。一般对于浏览器客户端，会用cookie实现session，用户第一次登录时，服务器会为用户创建一个sessionID放在cookie中返回给浏览器，浏览器把cookie保存，下次再访问时，服务器接收到请求信息会通过cookie中的sessionID判断是否是当前用户，再从数据库中获取session数据返回浏览器；<br>token：token是服务器生成的一串字符串，用作客户进行请求的一块令牌。客户第一次访问服务器，服务器会根据传过来的用户id，使用相关的算法再加上密钥生成一个token，然后再编码一下，将token传回客户端，客户端保存token，下次访问时，服务器收到请求，就会用相同的算法和密钥验证token，这样就不用存储用户的登录记录了。</p>
+<h3 id="6-cookie、session、token的区别"><a href="#6-cookie、session、token的区别" class="headerlink" title="6.cookie、session、token的区别"></a>6.cookie、session、token的区别</h3><p>cookie：是客户端保存用户信息的一种机制，用户第一次访问网络服务时，服务器生成一个键值对格式的数据作为身份标识，放到cookie字段里，再把cookie发送到用户浏览器保存在本地，下一次用户访问同一服务器的时候，浏览器就会把cookie放在请求报文里，服务端收到请求报文后发现cookie中字段有值，就能根据值识别用户的身份；<br>session：session是另一种记录服务端和客户端会话的机制，服务器会用session把用户的信息临时保存在服务器上，用户离开网站后session会被销毁，相比cookie来说更安全。一般对于浏览器客户端，会用cookie实现session，用户第一次登录时，服务器会为用户创建一个sessionID放在cookie中返回给浏览器，浏览器把cookie保存，下次再访问时，服务器接收到请求信息会通过cookie中的sessionID判断是否是当前用户，再从数据库中获取session数据返回浏览器；<br>token：token：token是服务器用作客户进行请求的一块令牌。客户第一次访问服务器，服务器会根据传过来的用户id，使用加密算法再加上密钥计算出一个签名，签名和用户数据一起生成一个token传回客户端，客户端保存token，服务端不保存，下次访问时，服务器收到请求，就会用相同的算法和密钥对数据再计算签名和token中的签名作比较，这样就不用了存储用户的登录记录了。</p>
 <p>cookie与session区别：<br>（1）保存地址不同：cookie保存在客户端，session保存在服务器<br>（2）存取数据类型不同：cookie保存ASCII码，session保存任意数据类型<br>（3）保存有效期不同：cookie可以设置长时间保存，而session失效时间短，客户端关闭或者session超时都会失效<br>（4）隐私策略不同：cookie存储在客户端，容易泄露，session保存在服务端，安全性好一点；<br>（5）存储大小不同：单个cookie保存数据大小不超过4kb，session可存储量要远大于cookie</p>
 <p>为什么需要cookie和session，关联？<br>因为http协议是无状态的，所以浏览器不知道是哪个用户在访问服务器，需要有一个机制来告诉服务器端，用户是否有登陆，是哪个用户登录，这个机制就需要cookie与session配合；</p>
 <p>如果禁止cookie怎么办？<br>答：（1）可以每次请求中携带一个sessionID的参数，可以通过post的方式提交，也可以在请求的地址后面拼接<br>（2）使用token</p>
@@ -1380,112 +1474,6 @@ class TreeNode &#123;
 
 
   
-    <article id="post-hexo-d-无法部署的解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/17/hexo-d-%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">hexo d 无法部署的解决方案</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/03/17/hexo-d-%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2021-03-17T01:39:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>昨天和今天使用hexo d部署时都出现报错：</p>
-<pre><code>$ hexo d
-INFO  Validating config
-INFO  Deploying: git
-INFO  Clearing .deploy_git folder...
-INFO  Copying files from public folder...
-INFO  Copying files from extend dirs...
-On branch master
-nothing to commit, working tree clean
-fatal: unable to access &#39;https://github.com/HuangXun-code/HuangXun-code.github.io.git/&#39;: Failed to connect to github.com port 443: Timed out
-FATAL &#123;
-  err: Error: Spawn failed
-      at ChildProcess.&lt;anonymous&gt; (D:\Blog\node_modules\hexo-deployer-git\node_modules\hexo-util\lib\spawn.js:51:21)
-      at ChildProcess.emit (events.js:314:20)
-      at ChildProcess.cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12) &#123;
-    code: 128
-  &#125;
-&#125; Something&#39;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</code></pre>
-<p>注意，这里的报错只是一小部分，还有一个错误是：</p>
-<pre><code>fatal: unable to access &#39;https://github.com/HuangXun-code/HuangXun-code.github.io.git/&#39;: OpenSSL SSL_connect: Connection was reset in connection to github.com:443</code></pre>
-<h2 id="分析问题原因"><a href="#分析问题原因" class="headerlink" title="分析问题原因"></a>分析问题原因</h2><p>我上网查询了很多资料，感觉应该是我之前用了vpn的缘故，导致无法部署。</p>
-<h2 id="绞尽脑汁解决问题的历程"><a href="#绞尽脑汁解决问题的历程" class="headerlink" title="绞尽脑汁解决问题的历程"></a>绞尽脑汁解决问题的历程</h2><h3 id="1-暂时的解决方案"><a href="#1-暂时的解决方案" class="headerlink" title="1.暂时的解决方案"></a>1.暂时的解决方案</h3><p>目前的可行解决方法是，先删除<code>.deploy_git</code>文件，电脑再换用手机热点，重新打开git bash，这样就可以成功部署；</p>
-<h3 id="2-错误二的解决方案"><a href="#2-错误二的解决方案" class="headerlink" title="2.错误二的解决方案"></a>2.错误二的解决方案</h3><p>但是手机热点转成网线，就还是报错，于是我按照<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37555071/article/details/114260533">Github报错OpenSSL SSL_connect: Connection was reset in connection to github.com:443终极解决方案</a>中的方案都试了一遍，其中方案一是有效的，我输入以下指令：</p>
-<pre><code>git config --global http.sslBackend &quot;openssl&quot;
-git config --global http.sslCAInfo &quot;C:\Program Files\Git\mingw64\ssl\cert.pem&quot;</code></pre>
-<p>其中，注意上面第二个命令，路径要换成git安装的路径。于是第二个错误消失，应该是代理的问题解决了，但第一个问题还在；</p>
-<h3 id="3-错误一的解决方案"><a href="#3-错误一的解决方案" class="headerlink" title="3.错误一的解决方案"></a>3.错误一的解决方案</h3><p>我花了很久时间找第一个问题的解决办法，终于在github上找到了解决方案，原来这个问题很多人都遇到过，按照这个网址中<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/2778">hexo d ：give me fatal: could not read Username for ‘https://github.com’: No error</a>输入以下指令如下：</p>
-<pre><code>hexo config deploy.repository git@github.com:yourgitname/yourgitname.github.io.git</code></pre>
-<p>其中，yourgitname是你自己的github仓库名，换成自己的仓库名即可。到此问题解决！！！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/17/hexo-d-%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1648,6 +1636,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">UML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
             
             <div class="clearfix"></div>
