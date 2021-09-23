@@ -155,6 +155,164 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-笔试题2：层序遍历二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/18/%E7%AC%94%E8%AF%95%E9%A2%982%EF%BC%9A%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91/">笔试题2：层序遍历二叉树</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/03/18/%E7%AC%94%E8%AF%95%E9%A2%982%EF%BC%9A%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2021-03-18T00:42:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>继续记录遇到的笔试题，写下解法，供日后参考。</p>
+<h2 id="层序遍历二叉树"><a href="#层序遍历二叉树" class="headerlink" title="层序遍历二叉树"></a>层序遍历二叉树</h2><p>从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印一行。</p>
+<p>例如：<br>给定二叉树：<code>&#123;3,9,20,#,#,15,7&#125;</code>，<code>#</code>代表空,</p>
+<pre><code>    3
+   / \
+  9  20
+    /  \
+   15   7
+</code></pre><p>返回层序遍历结果：</p>
+<pre><code>[[3],[9,20],[15,7]]
+</code></pre><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>这道题是LeetCode剑指offer中的原题：从上到下打印二叉树II，如果单单就是这么一个题目，其实不难，难的是要求输入输出自写，这就把题目难度提升了一个档次了，还需要我们把输入的二叉树序列转化成二叉树结构，也就是二叉树的反序列化，同样也是剑指offer中的原题。实际上这道题相当于把两道题结合在了一起！！</p>
+<p>因此，为了完成题目，我们需要定义两个方法：层序遍历函数与二叉树反序列化函数，另外还需要自己定义一个二叉树的类，最后加上输入和输出，题目才算完成。</p>
+<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><pre><code>import com.sun.source.tree.Tree;
+import java.util.*;
+
+public class Solution &#123;
+    public static void main(String[] agrs)&#123;
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        TreeNode root = deserialize(s);
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; list;
+        list = levelOrder(root);
+        System.out.println(list.toString());
+    &#125;
+
+    //层序遍历
+    public static ArrayList&lt;ArrayList&lt;Integer&gt;&gt; levelOrder(TreeNode root)&#123;
+        if (root == null)
+            return new ArrayList&lt;&gt;();
+
+        LinkedList&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; lists = new ArrayList&lt;&gt;();
+
+        queue.add(root);
+
+        while(!queue.isEmpty())&#123;
+            ArrayList&lt;Integer&gt; tmp = new ArrayList&lt;&gt;();
+            for (int i = queue.size(); i &gt; 0; i--)&#123;
+                TreeNode node = queue.poll();
+                tmp.add(node.val);
+                if (node.left != null)
+                    queue.add(node.left);
+                if (node.right != null)
+                    queue.add(node.right);
+            &#125;
+            lists.add(tmp);
+        &#125;
+        return lists;
+    &#125;
+
+    //反序列化二叉树
+    public static TreeNode deserialize(String data)&#123;
+        if (data.equals(&quot;&#123;&#125;&quot;)) return null;
+        String[] vals = data.substring(1, data.length() - 1).split(&quot;,&quot;);
+        TreeNode root = new TreeNode(Integer.parseInt(vals[0]));
+        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+        queue.add(root);
+        int i = 1;
+        while(!queue.isEmpty() &amp;&amp; i &lt; vals.length)&#123; //这里添加了一个条件：i需要小于节点序列长度，否则下面vals[i]会报错
+            TreeNode node = queue.poll();
+            if (!vals[i].equals(&quot;#&quot;))&#123;
+                node.left = new TreeNode(Integer.parseInt(vals[i]));
+                queue.add(node.left);
+            &#125;
+            i++;
+            if (!vals[i].equals(&quot;#&quot;))&#123;
+                node.right = new TreeNode(Integer.parseInt(vals[i]));
+                queue.add(node.right);
+            &#125;
+            i++;
+        &#125;
+        return root;
+    &#125;
+&#125;
+
+//二叉树类
+class TreeNode &#123;
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+    TreeNode(int x) &#123;val = x;&#125; //添加构造函数
+  &#125;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Java 算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/18/%E7%AC%94%E8%AF%95%E9%A2%982%EF%BC%9A%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hexo-d-无法部署的解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1252,85 +1410,6 @@ Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obta
 
 
   
-    <article id="post-tensorflow错误-tensorflow.python.framework.errors_impl.InvalidArgumentError" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/06/tensorflow%E9%94%99%E8%AF%AF-tensorflow.python.framework.errors_impl.InvalidArgumentError/">tensorflow错误-tensorflow.python.framework.errors_impl.InvalidArgumentError</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/12/06/tensorflow%E9%94%99%E8%AF%AF-tensorflow.python.framework.errors_impl.InvalidArgumentError/" class="archive-article-date">
-  	<time datetime="2020-12-06T03:12:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录下使用tensorflow跑神经网络时遇到的一个问题，使用的是别人写的花卉识别的程序，换用了新的数据集，跑的时候出现了这样的错误：</p>
-<pre><code>tensorflow.python.framework.errors_impl.InvalidArgumentError: slice index 1 of dimension 0 out o
-</code></pre><p>然后上网查询资料，发现这个错误的出现一般是神经网络的参数没设定对，有可能是标签类别或者训练集类别数量有问题，我排查了一遍，果然发现了错误。原来的数据集中，训练集和标签有四种，而我换用新的数据集是五种，没有在代码里改掉，才出现了这样的错误。将代码里出现的数量改成5就好了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tensorflow bug</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/06/tensorflow%E9%94%99%E8%AF%AF-tensorflow.python.framework.errors_impl.InvalidArgumentError/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1518,6 +1597,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">面试 计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
             
             <div class="clearfix"></div>
