@@ -15,15 +15,14 @@
 <meta property="og:site_name" content="HuangXun&#39;s Blog">
 <meta property="og:description" content="决策树介绍决策树是机器学习里非常常见的分类算法。 具体而言，决策树模型会根据大量的历史样本数据，运用算法选择合适的属性作为节点，最终构造出类似流程图的树状结构。决策树的基本结构包含根节点、子节点、叶子节点。而决策树用到的算法，本质就类似于if else的判断语句，根据某个判断条件产生新的分支。当分到叶子节点，也就是最底部的节点，已经不能再分下去，就是决策的结果。 决策树具体流程使用决策树做分类的每">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://pic.imgdb.cn/item/6139922c44eaada73975010a.png">
-<meta property="og:image" content="https://pic.imgdb.cn/item/613992d044eaada73975f363.png">
-<meta property="og:image" content="https://pic.imgdb.cn/item/6139932d44eaada739768975.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/614c6f802ab3f51d91741c0d.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/614c749e2ab3f51d917c3765.png">
 <meta property="article:published_time" content="2021-09-09T03:05:58.000Z">
-<meta property="article:modified_time" content="2021-09-22T09:09:36.975Z">
+<meta property="article:modified_time" content="2021-09-23T12:35:57.006Z">
 <meta property="article:author" content="HuangXun">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic.imgdb.cn/item/6139922c44eaada73975010a.png">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/614c6f802ab3f51d91741c0d.png">
   
     <link rel="alternative" href="/atom.xml" title="HuangXun&#39;s Blog" type="application/atom+xml">
   
@@ -200,15 +199,88 @@
 <li>选择那些属性作为子节点</li>
 <li>什么时候停止得到决策的结果，即叶子节点</li>
 </ol>
-<p>（1）这里我们使用ID3算法为例做演示,数据如下：</p>
-<p><img src="https://pic.imgdb.cn/item/6139922c44eaada73975010a.png" alt="avatar"></p>
+<p>###（1）这里我们使用ID3算法为例做演示,数据如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">No.</th>
+<th align="center">有翅膀</th>
+<th align="center">能飞</th>
+<th align="center">是否是鸟</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">No</td>
+</tr>
+</tbody></table>
 <p>ID3算法的核心是在决策树各个节点上对应信息增益准则选择特征，递归地构建决策树。具体方法是：从根节点开始，对节点计算所有可能的特征的信息增益，选择信息增益最大的特征作为节点的特征，由该特征的不同取值建立子节点；再对子节点递归地调用以上方法，构建决策树；直到所有特征的信息增益均很小或没有特征可以选择为止。最后得到一个决策树。</p>
 <p>为了计算信息增益，首先需要计算熵，熵的计算公式如下：</p>
-<p><img src="https://pic.imgdb.cn/item/613992d044eaada73975f363.png" alt="avatar"></p>
-<p>其中，n是样本总数，Xi是第i类样本，p(Xi)是选择该样本的概率，D代表全部样本数。所以计算得到：</p>
-<p><img src="https://pic.imgdb.cn/item/6139932d44eaada739768975.png" alt="avatar"></p>
+<p>$$Ent(D)=-\sum_{i=1}^np(x_i)log_2p(x_i)$$</p>
+<p>其中，n是样本总数， \(X_i\) 是第i类样本， \(p(X_i)\) 是选择该样本的概率，D代表全部样本数。所以计算得到：</p>
+<p>$$Ent(D)=-(0.4* log_2(0.4) + 0.6* log_2(0.6)) = 0.971$$</p>
 <p>之后再计算信息增益，信息增益的计算公式如下：</p>
-<p>$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
+<p>$$Gain(D,A)=Ent(D)-\sum_{v=1}^V\frac{|D^v|}{|D|}Ent(D^v)$$</p>
+<p>其中，A代表某个特征，V代表特征A可能的取值数，\(D^v\)代表特征A划分的类数，计算得到：</p>
+<p>$$<br>Gain(‘有翅膀’)=Ent(D)-[\frac{3}{5}Ent(D_1)+\frac{2}{5}Ent(D_2)]=0.971-[\frac{3}{5}(-\frac{2}{3}log_2\frac{2}{3}-\frac{1}{3}log_2\frac{1}{3})+\frac{2}{5}(-\frac{2}{2}log_2\frac{2}{2})]=0.42<br>$$</p>
+<p>同理计算Gain(‘会飞’)：</p>
+<p>$$<br>Gain(‘会飞’)=Ent(D)-[\frac{3}{5}Ent(D_1)+\frac{2}{5}Ent(D_2)]=0.971-[\frac{3}{5}(-\frac{2}{3}log_2\frac{2}{3}-\frac{1}{3}log_2\frac{1}{3})+\frac{2}{5}(-\frac{2}{2}log_2\frac{2}{2})]=0.42<br>$$</p>
+<p>划分数据集的准则是选择最大信息增益，而第一个特征列的信息增益和第二个特征列的信息增益都为0.42，任选一个特征进行划分，这里选择第一个特征列wings进行切分数据集，之后再选择第二个特征列fly进行切分。最终切分后得到的决策树如下所示：</p>
+<p><img src="https://pic.imgdb.cn/item/614c6f802ab3f51d91741c0d.png" alt="avatar"></p>
+<p>对图的一些解释：</p>
+<ol>
+<li>第一个节点的entropy代表样本整体的entropy，所以是0.971，fly节点的entropy代表剩余三个样本的entropy，所以是0.918，当entropy=0，代表不确定性最小，此时结果是确定值。之后的gini系数图也是同理。</li>
+<li>首先按照wings划分，wings &lt;= 0.5的划分为不是鸟类（这里划分出两个，samples=2），否则继续按照fly划分；对fly划分，如果 &lt;= 0.5就划分为不是鸟类（这里再划分出一个，samples=1），否则就为鸟类（这里划分出两个，samples=2）</li>
+<li>value=[x,y]，x代表不为鸟类的样本数，y为是鸟类的样本数</li>
+</ol>
+<p>ID3算法缺点：</p>
+<ol>
+<li>容易生成很深的树，产生过拟合现象；</li>
+<li>不能处理具有连续值的属性</li>
+<li>不能处理属性有缺失的样本</li>
+</ol>
+<p>###（2）CART算法</p>
+<p>CART算法与ID3算法不同的是，CART算法采用Gini系数来代替信息增益，基尼系数越小，代表模型特征越好，另外，相比ID3算法，CART算法可以处理连续的属性值。</p>
+<ul>
+<li>对于离散值，如果遇到特征有三个及以上的值时，如有A1，A2，A3三个类别时，如果是ID3算法则会建立一个三叉的节点，但CART是不停地二分，按照{A1}{A2和A3}、{A2}{A1和A3}、{A3}{A1和A2}三种情况，找到Gini系数最小的组合，建立二叉树。而有多个值的节点后面再继续分开。</li>
+<li>对于连续值，比如m个样本的连续特征A有m个，从小到大排列为a1、a2，…，am，则CART算法取相邻两样本值的平均数，一共取得m-1个划分点，其中第i个划分点Ti=（ai + ai+1）/2，对于这m-1个点，分别计算以该点作为二元分类点时的Gini系数。选择最小系数的点作为二分点。比如取到最小系数的点为at，则小于at的值为类别1，大于at的值为类别2。</li>
+</ul>
+<p>Gini系数计算公式如下：</p>
+<p>$$<br>Gini(D)=1-\sum_{i=1}^K{(\frac{|C_k|}{|D|})}^2<br>$$</p>
+<p>$$<br>Gini(D,A)=\frac{|D_1|}{|D|}Gini(D_1)+\frac{|D_2|}{|D|}Gini(D_2)<br>$$</p>
+<p>其中，D是样本集合数，\(C_k\)是D中属于第k类的样本子集，K是类的个数。A是某个特征，它的特征值a将D分割成\(D_1\)和\(D_2\)两部分。</p>
+<p>同样以样本数据为例，计算Gini系数如下，由于样本数据是离散值，采用离散值的计算方式：<br>首先计算第一特征列的Gini系数：</p>
+<p>$$Gini(D,A_1)=\frac{3}{5}Gini(D_1)+\frac{2}{5}Gini(D_2)=\frac{3}{5}(1-{\left(\frac{2}{3}\right)}^2-{\left(\frac{1}{3}\right)}^2)+\frac{2}{5}(1-{\left(\frac{2}{2}\right)}^2)=0.266<br>$$</p>
+<p>计算第二特征列的Gini系数：</p>
+<p>$$Gini(D,A_2)=\frac{3}{5}Gini(D_1)+\frac{2}{5}Gini(D_2)=\frac{3}{5}(1-{\left(\frac{2}{3}\right)}^2-{\left(\frac{1}{3}\right)}^2)+\frac{2}{5}(1-{\left(\frac{2}{2}\right)}^2)=0.266<br>$$</p>
+<p>因为都是0.266，任选特征划分，这里选择先按照fly划分，再按照wings划分。</p>
+<p><img src="https://pic.imgdb.cn/item/614c749e2ab3f51d917c3765.png" alt="avatar"></p>
 
       
 
