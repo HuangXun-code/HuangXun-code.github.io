@@ -155,6 +155,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java学习那些事儿-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/28/Java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-4/">Java学习那些事儿-4</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/03/28/Java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-4/" class="archive-article-date">
+  	<time datetime="2021-03-28T08:59:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天学习多线程的时候，看到了一个自旋锁的简单代码实现，觉得很不错，所以把代码给记录下来，以供日后参考。</p>
+<h2 id="Java实现简单的自旋锁"><a href="#Java实现简单的自旋锁" class="headerlink" title="Java实现简单的自旋锁"></a>Java实现简单的自旋锁</h2><pre><code>import java.util.concurrent.atomic.AtomicReference;
+
+public class SpinLock &#123;
+                   //使用原子类来标识线程是否获取到了锁
+       private AtomicReference&lt;Thread&gt; owner = new AtomicReference&lt;Thread&gt;();
+
+       public void lock() &#123;
+           Thread currentThread = Thread.currentThread();
+
+                  // 如果锁未被占用，则设置当前线程为锁的拥有者
+
+           for (;;) &#123;  //这里使用for循环替代while循环，因为
+                   if (!owner.compareAndSet(null, current)) &#123;
+                       return;
+                   &#125;
+               &#125;
+       &#125;
+
+       public void unlock() &#123;
+           Thread currentThread = Thread.currentThread();
+
+                  // 只有锁的拥有者才能释放锁
+           owner.compareAndSet(currentThread, null);
+       &#125;
+    &#125;
+</code></pre><h2 id="一些小结"><a href="#一些小结" class="headerlink" title="一些小结"></a>一些小结</h2><p>代码实现的整个过程如下：<br>首先使用原子类容器存放线程，在索取锁时，调用compareAndSet()方法（CAS）查看当前是否有线程占用锁，没有就设置当前线程为锁的占用者，如果没有获取到锁，就会陷入死循环，不断自旋，并一直调用compareAndSet()方法，直到有空闲锁。</p>
+<p>然后使用unlock()释放锁，还是调用compareAndSet()方法，把当前线程改为空。</p>
+<p>注意，这个代码实现的自旋锁是不可重入的，意思是不可以重复递归调用，否则就会引起死锁。</p>
+<p>另外，以上代码里，在lock()方法里，使用了for循环来替代while循环，这是因为代码编译成汇编语言后，发现for (；；)指令少，不占用寄存器，而且没有判断跳转，比while (1)好。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java 多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/28/Java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-趣学生物-微信小程序文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1338,95 +1444,6 @@ public class Solution &#123;
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/02/05/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java学习那些事儿-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/02/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-1/">java学习那些事儿(1)</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/02/02/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-1/" class="archive-article-date">
-  	<time datetime="2021-02-02T15:16:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录下用java刷题过程中遇到的一些细的散的知识点。</p>
-<h2 id="1-java运算符中的与-amp-、或-、异或"><a href="#1-java运算符中的与-amp-、或-、异或" class="headerlink" title="1.java运算符中的与(&amp;)、或(|)、异或(^)"></a>1.java运算符中的与(&amp;)、或(|)、异或(^)</h2><p>与(&amp;)、或(|)、异或(^)三种运算都用于java的二进制运算中。与(&amp;)运算：两个数都转为二进制后从高位到低位依次各个位比较，都为1则赋1，否则赋0。e.g. 9&amp;3:按八位来转为二进制分别为00001001和00000011,按照运算规则计算得00000001，再转化为十进制即为1；或(|)运算：两个数都转为二进制后从高位到低位依次各个位比较，两位中只要有1就赋1，否则赋0。e.g. 9|3:按八位来转为二进制分别为00001001和00000011,按照运算规则计算得00001011，再转化为十进制即为11；异或(^)运算：两个数都转为二进制后从高位到低位依次各个位比较，两位中只要不同就赋1，相同则赋0。e.g. 9^3:按照运算规则计算得00001010，再转化为十进制即为10。</p>
-<h2 id="2-List中的get-用法"><a href="#2-List中的get-用法" class="headerlink" title="2.List中的get()用法"></a>2.List中的get()用法</h2><pre><code>    List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-    list.add(1); //此处其实存在自动包装机制，即为list.add(new Integer(1))；
-    list.add(2);
-    list.add(3);
-    for (int i = 0; i &lt; list.size(); i++)&#123;
-        System.out.println(list.get((i)));
-    &#125;
-</code></pre><p>get()方法中，get(i)表示取list中第i个元素，当i=0时，取第一个，i=2取第二个，以此类推，类似数组下标，从0开始，需要注意越界的问题。</p>
-<h2 id="3-Queue中的poll-与remove-区别"><a href="#3-Queue中的poll-与remove-区别" class="headerlink" title="3.Queue中的poll()与remove()区别"></a>3.Queue中的poll()与remove()区别</h2><p>Queue中poll()与remove()方法都是从Queue头部中删除一个元素并返回，不同的是，在队列元素为空的情况下，remove()会抛出NoSuchElementException异常，而poll()不会抛出异常，只会返回null。</p>
-<h2 id="4-Operator-‘-amp-’-cannot-be-applied-to-‘int’-‘boolean’错误"><a href="#4-Operator-‘-amp-’-cannot-be-applied-to-‘int’-‘boolean’错误" class="headerlink" title="4.Operator ‘&amp;’ cannot be applied to ‘int’, ‘boolean’错误"></a>4.Operator ‘&amp;’ cannot be applied to ‘int’, ‘boolean’错误</h2><pre><code>System.out.println(3 &amp; 1 == 0); //报错
-</code></pre><p>java中关系运算符优先级要大于逻辑运算符，因此会计算1 == 0等于false，再计算3 &amp; false。&amp;左右两边必须类型相同，都是int型或者都是boolean型，int &amp; boolean显然错误。正确的方法是在3 &amp; 1添括号，变成(3 &amp; 1) == 0。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/02/java%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-1/">展开全文 >></a>
         </p>
       
 

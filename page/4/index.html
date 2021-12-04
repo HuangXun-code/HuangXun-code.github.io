@@ -155,6 +155,118 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-LeetCode的那些事儿-题703" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%98703/">LeetCode的那些事儿-题703</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%98703/" class="archive-article-date">
+  	<time datetime="2020-10-19T14:12:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我打算按照LeetCode的各种题型来刷，把简单的题型都过一遍，正好还可以复习下数据结构。这次是堆结构，题目也都是用的堆来解的。</p>
+<h2 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h2><h3 id="703-数据流中的第K大元素"><a href="#703-数据流中的第K大元素" class="headerlink" title="703. 数据流中的第K大元素"></a>703. 数据流中的第K大元素</h3><p>难度：简单</p>
+<p>设计一个找到数据流中第K大元素的类（class）。注意是排序后的第K大元素，不是第K个不同的元素。</p>
+<p>你的<code>KthLargest</code>类需要一个同时接收整数<code>k</code>和整数数组<code>nums</code>的构造器，它包含数据流中的初始元素。每次调用<code>KthLargest.add</code>，返回当前数据流中第K大的元素。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre><code>int k = 3;
+int[] arr = [4,5,8,2];
+KthLargest kthLargest = new KthLargest(3, arr);
+kthLargest.add(3);   // returns 4
+kthLargest.add(5);   // returns 5
+kthLargest.add(10);  // returns 5
+kthLargest.add(9);   // returns 8
+kthLargest.add(4);   // returns 8
+</code></pre><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p><code>nums</code>的长度≥<code>k-1</code>且<code>k</code>≥ 1</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>这道题要求我们写出一个类，类中的方法可以返回排序后的第k个元素，即可以添加新元素，并且每次输出从小到大第k个元素。使用堆来解的话，就需要使用最小堆。我们首先声明一个最小堆和一个整型变量k，在构造器中定义它们，并在构造器中提前将所有元素都使用add方法添加进堆。值得注意的是，构造器中的堆定义里要注明堆的大小为k，因为我们需要在add方法中对入堆元素进行限制：<strong>如果选中元素大于堆顶元素（堆顶元素此时是最小元素），则将堆顶元素排出，选中元素入堆</strong>。按照这样的规则，小于堆顶的元素不进去，大于的话则剔除对端元素后把选中的入堆，这样的话k个容量的最小堆中，堆顶的元素就一定是从小到大第k个元素。另外还有一个点需要注意的是，可能k会给的很大，导致在构造器中把所有元素入堆后堆容量依旧没满。我们需要在add方法中添加相应的条件。</p>
+<h3 id="代码-java"><a href="#代码-java" class="headerlink" title="代码(java)"></a>代码(java)</h3><pre><code>class KthLargest &#123;
+    private PriorityQueue&lt;Integer&gt; queue;
+    private int k;
+    public KthLargest(int k, int[] nums) &#123;
+        this.k = k;
+        queue = new PriorityQueue&lt;&gt;(k);
+        for(int e : nums) add(e);
+    &#125;
+
+    public int add(int val) &#123;
+        if (queue.size() &lt; k) 
+            queue.offer(val);
+        else&#123;
+            if (val &gt; queue.peek())&#123;
+                queue.poll();
+                queue.offer(val);
+            &#125;
+        &#125;
+        return queue.peek();
+    &#125;
+&#125;
+</code></pre><h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>这道题我依旧是看了别的大神的题解才会做的。另外，我觉得这个方法比较新的一点是在构造器中就能够想到用add方法，也许大神是先想到add方法，再来想构造器的？换我我肯定想不出来…</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法 数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/19/LeetCode%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E9%A2%98703/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LeetCode的那些事儿-题538" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
