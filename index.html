@@ -524,97 +524,6 @@ Arrays.sort(a, (o1, o2) -&gt; o2 - o1);
 
 
   
-    <article id="post-LeetCode中的二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/04/LeetCode%E4%B8%AD%E7%9A%84%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">LeetCode中的二分查找</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/11/04/LeetCode%E4%B8%AD%E7%9A%84%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2021-11-04T13:45:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在做LeetCode-367. 有效的完全平方数这道题的过程中，偶然发现二分查找在边界值这块儿还是我有点不熟悉，所以在这里记录一下二叉查找的边界值使用条件。</p>
-<h2 id="代码举例1"><a href="#代码举例1" class="headerlink" title="代码举例1"></a>代码举例1</h2><pre><code>while(l &lt;= r)&#123;
-        int mid = l + r + 1 &gt;&gt; 1;
-        if (mid &gt; num) l = mid + 1;
-        else if (mid  &lt; num) r = mid - 1; 
-        else return true;
-    &#125;
-</code></pre><p>首先以上述代码为例，while循环中 l &lt;= r，所以循环中的if条件是不出现等号的，如果出现等号就直接返回。</p>
-<h2 id="代码举例2"><a href="#代码举例2" class="headerlink" title="代码举例2"></a>代码举例2</h2><pre><code>while(l &lt; r)&#123;
-        int mid = l + r + 1 &gt;&gt; 1;
-        if (mid &gt;= num) l = mid + 1;
-        else if (mid  &lt; num) r = mid - 1; 
-    &#125;
-return r;
-</code></pre><p>如果while循环中 l &lt; r，则循环中的if条件出现等号，将等号加入大于或小于条件中。然后等循环结束后再返回值。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法 数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/04/LeetCode%E4%B8%AD%E7%9A%84%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-markdownpad2编写数学公式以及显示的方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1378,6 +1287,234 @@ else&#123;
 
 
   
+    <article id="post-计算机网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/04/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
+  	<time datetime="2021-04-02T01:50:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录下这段时间复习计算机网络（其实跟重头开始学没啥两样。。）的知识总结吧。</p>
+<h2 id="1-OSI七层体系结构、TCP-IP四层体系结构、五层体系结构"><a href="#1-OSI七层体系结构、TCP-IP四层体系结构、五层体系结构" class="headerlink" title="1.OSI七层体系结构、TCP/IP四层体系结构、五层体系结构"></a>1.OSI七层体系结构、TCP/IP四层体系结构、五层体系结构</h2><p>（从上到下）<br>OSI七层体系结构：应用层、会话层、表示层、传输层、网络层、数据链路层、物理层；</p>
+<p>TCP/IP四层体系结构：应用层、传输层、网际层IP、网络接口层；</p>
+<p>五层体系结构：应用层、传输层、网络层、数据链路层、物理层（需要了解各个层的基本作用以及各个层具有哪些常见的协议）</p>
+<ol>
+<li>应用层：应用层的任务是通过应用进程间的交互来完成特定网络应用，整个应用层协议定义的是应用进程间的通信和交互的规则。应用层交互的数据单元称为报文。<br>应用层常见协议：域名系统DNS、HTTP协议、支持电子邮件的SMTP协议、FTP文件传输协议等。</li>
+</ol>
+<ul>
+<li>会话层</li>
+</ul>
+<p>不参与具体的传输，提供建立和维护应用间通信的机制。</p>
+<ul>
+<li>表示层</li>
+</ul>
+<p>数据的表示方式（格式处理及编码转换）和特定功能（加解密，解压缩）的实现</p>
+<ul>
+<li>应用层</li>
+</ul>
+<p>为用户提供服务，为操作系统或者应用程序提供访问网络的的接口，应用层协议的代表包括：Telnet、FTP、HTTP、SNMP等</p>
+<ol>
+<li><p>传输层：传输层的主要任务是负责向两台主机进程之间的通信提供通用的数据传输服务。应用进程利用传输层的数据服务来传送应用层的报文。“通用的”就是指传输层服务适用于多个应用，它们都可以用运输层提供的协议进行数据传输。由于一台主机可同时运行多个进程，因此运输层有复用和分用的功能。复用即多个应用层进程可同时使用下面的传输层服务，而分用是运输层把收到的信息分别交付上面的应用层的相应进程。<br>传输层主要使用两种协议：<strong>传输控制协议TCP、用户数据协议UDP</strong>（绝对的重点，围绕这两个协议的知识点非常之多）</p>
+</li>
+<li><p>网络层：在计算机网络中通信的两个计算机之间可能会经过很多数据链路和通信子网，网络层的任务就是选择合适的网间路由和交换结点，确保数据及时传送。在发送数据时，网络层把传输层产生的报文段或用户数据报封装成分组和包进行传送。由于网络层适用IP协议，所以分组也叫<strong>IP数据报</strong>，简称数据报。<br>网络层常见协议：IP协议、ARP地址转换协议、RIP路由信息协议、RARP反向地址转换协议等</p>
+</li>
+<li><p>数据链路层：两台计算机进程之间的数据传输是在一段一段的链路上传送的，所以需要链路层提供专门的协议。在两个相邻节点之间传送数据时，数据链路层会把网络传下来的IP数据报组装成<strong>帧</strong>，在两个相邻节点间的链路上传送帧。每一个帧包括数据本身和必要的<strong>控制信息（同步信息、地址信息、差错控制信息等）</strong>。接收数据时，接收方就可以根据控制信息知道一个帧从哪一个比特开始，到哪一个比特结束，从而在收到帧后，从中提取出数据部分上传给网络层。另外，控制信息还可以让接收端检测收到的帧是否有误差错误，有错就直接丢弃帧，避免白白传送浪费网络资源；链路层还可以采用一些可靠的传输协议来改正链路层中传输的数据。<br>链路层协议：ARQ自动重传请求协议、CSMA/CD停止等待协议、PPP点对点协议</p>
+</li>
+<li><p>物理层：在物理层上传送的数据单位是比特。物理层的作用是实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和屋里设备的差异，使上面的数据链路层不必考虑网络的具体传输介质是什么，透明表示经实际电路传送后的比特流没有发送变化，对传送的比特流来说，这个电路好像看不见的。<br>物理层：中继器、集线器、网线、HUB</p>
+</li>
+</ol>
+<h2 id="2-HTTP协议-HTTPS协议"><a href="#2-HTTP协议-HTTPS协议" class="headerlink" title="2.HTTP协议/HTTPS协议"></a>2.HTTP协议/HTTPS协议</h2><h3 id="1-HTTP协议"><a href="#1-HTTP协议" class="headerlink" title="1.HTTP协议"></a>1.HTTP协议</h3><p>http协议：<br>http协议的全称是超文本传输协议，是用于浏览器和服务器之间传输文字、图片、音频、视频等超文本数据的约定和规范。<br>http协议有几个特点：<br>（1）规定了通信双方必须遵循的一些数据传输格式，保证通信双方可以按照约定的格式进行准确通信<br>（2）http协议是无状态的协议，协议本身不会对发送过的请求和相应的通信状态进行持久化处理；<br>（3）http协议是基于TCP协议的应用层传输协议，它需要客户端与服务端先建立TCP连接，客户端再发送HTTP请求，服务器相应HTTP请求并发回数据。<br>（3）http协议上通信的双方主要针对客户端与服务器端</p>
+<h3 id="2-介绍HTTPS协议-HTTPS协议与HTTP协议有什么区别？"><a href="#2-介绍HTTPS协议-HTTPS协议与HTTP协议有什么区别？" class="headerlink" title="2. 介绍HTTPS协议/HTTPS协议与HTTP协议有什么区别？"></a>2. 介绍HTTPS协议/HTTPS协议与HTTP协议有什么区别？</h3><p>HTTP与HTTPS的区别：<br>HTTP 是超文本传输协议，信息是明文传输，存在安全风险的问题。HTTPS 则解决 HTTP 不安全的缺陷，在 TCP 和 HTTP 网络层之间加入了 SSL/TLS 安全协议，使得报文能够加密传输。<br>HTTP 连接建立相对简单， TCP 三次握手之后便可进行 HTTP 的报文传输。而 HTTPS 在 TCP 三次握手之后，还需进行 SSL/TLS 的握手过程，才可进入加密报文传输。<br>HTTP 的端口号是 80，HTTPS 的端口号是 443。<br>HTTPS 协议需要向 CA（证书权威机构）申请数字证书，来保证服务器的身份是可信的。</p>
+<p>HTTPS建立过程?</p>
+<ol>
+<li>用户在浏览器发起HTTPS请求（如 <a target="_blank" rel="noopener" href="https://www.mogu.com/），默认使用服务端的443端口进行连接；">https://www.mogu.com/），默认使用服务端的443端口进行连接；</a></li>
+<li>HTTPS需要使用一套CA数字证书，证书内会附带一个公钥Pub，而与之对应的私钥Private保留在服务端不公开；</li>
+<li>服务端收到请求，返回配置好的包含公钥Pub的证书给客户端；</li>
+<li>客户端收到证书，校验合法性，主要包括是否在有效期内、证书的域名与请求的域名是否匹配，上一级证书是否有效（递归判断，直到判断到系统内置或浏览器配置好的根证书），如果不通过，则显示HTTPS警告信息，如果通过则继续；</li>
+<li>客户端生成一个用于对称加密的随机Key，并用证书内的公钥Pub进行加密，发送给服务端；</li>
+<li>服务端收到随机Key的密文，使用与公钥Pub配对的私钥Private进行解密，得到客户端真正想发送的随机Key；</li>
+<li>服务端使用客户端发送过来的随机Key对要传输的HTTP数据进行对称加密，将密文返回客户端；</li>
+<li>客户端使用随机Key对称解密密文，得到HTTP数据明文；</li>
+<li>后续HTTPS请求使用之前交换好的随机Key进行对称加解密。</li>
+</ol>
+<p>为什么先用非对称加密后用对称加密？<br>答：先非对称加密，因为数字证书是公开的，如果使用对称加密的话，可能会被中间人截取并获取对称密钥，伪装成合法服务端，用密钥解密数据，所以需要使用非对称加密保证中间人即使拿到证书也没用，因为无法获取私钥；<br>后用对称加密，因为（1）非对称加密加解密效率非常低，http协议中通常需要大量的数据交互，使用非对称加密的效率很低；（2）在https协议中，只有服务端持有私钥，一对公私钥只能实现单向的加解密，所以采用对称加密，使得通信双方都能加解密。</p>
+<h3 id="3-什么是对称加密-非对称加密-区别？"><a href="#3-什么是对称加密-非对称加密-区别？" class="headerlink" title="3. 什么是对称加密/非对称加密 / 区别？"></a>3. 什么是对称加密/非对称加密 / 区别？</h3><p>1、加密和解密过程不同</p>
+<p>对称加密过程和解密过程使用的同一个密钥，加密过程相当于用原文+密钥可以传输出密文，同时解密过程用密文-密钥可以推导出原文。但非对称加密采用了两个密钥，一般使用公钥进行加密，使用私钥进行解密。</p>
+<p>2、加密解密速度不同</p>
+<p>对称加密解密的速度比较快，适合数据比较长时的使用。非对称加密和解密花费的时间长、速度相对较慢，只适合对少量数据的使用。</p>
+<p>3、传输的安全性不同</p>
+<p>对称加密的过程中无法确保密钥被安全传递，密文在传输过程中是可能被第三方截获的，如果密码本也被第三方截获，则传输的密码信息将被第三方破获，安全性相对较低。</p>
+<p>非对称加密算法中私钥是基于不同的算法生成不同的随机数，私钥通过一定的加密算法推导出公钥，但私钥到公钥的推导过程是单向的，也就是说公钥无法反推导出私钥。所以安全性较高。</p>
+<p>非对称加密算法：RSA<br>对称加密算法：DES、AES</p>
+<h3 id="4-HTTP请求的方法"><a href="#4-HTTP请求的方法" class="headerlink" title="4. HTTP请求的方法"></a>4. HTTP请求的方法</h3><p>常见的有POST、GET、DELETE、PUT</p>
+<p>GET与POST区别？</p>
+<h3 id="5-从浏览器中输入URL地址到显示主页的过程？"><a href="#5-从浏览器中输入URL地址到显示主页的过程？" class="headerlink" title="5.从浏览器中输入URL地址到显示主页的过程？"></a>5.从浏览器中输入URL地址到显示主页的过程？</h3><p>DNS解析：将域名解析成IP地址；<br>TCP连接：三次握手<br>发送http请求<br>服务器处理请求并返回http报文<br>浏览器解析渲染页面显示在浏览器<br>客户关闭网页，断开连接：TCP四次挥手</p>
+<h3 id="6-cookie、session、token的区别"><a href="#6-cookie、session、token的区别" class="headerlink" title="6.cookie、session、token的区别"></a>6.cookie、session、token的区别</h3><p>cookie：是客户端保存用户信息的一种机制，用户第一次访问网络服务时，服务器生成一个键值对格式的数据作为身份标识，放到cookie字段里，再把cookie发送到用户浏览器保存在本地，下一次用户访问同一服务器的时候，浏览器就会把cookie放在请求报文里，服务端收到请求报文后发现cookie中字段有值，就能根据值识别用户的身份；<br>session：session是另一种记录服务端和客户端会话的机制，服务器会用session把用户的信息临时保存在服务器上，用户离开网站后session会被销毁，相比cookie来说更安全。一般对于浏览器客户端，会用cookie实现session，用户第一次登录时，服务器会为用户创建一个sessionID放在cookie中返回给浏览器，浏览器把cookie保存，下次再访问时，服务器接收到请求信息会通过cookie中的sessionID判断是否是当前用户，再从数据库中获取session数据返回浏览器；<br>token：token：token是服务器用作客户进行请求的一块令牌。客户第一次访问服务器，服务器会根据传过来的用户id，使用加密算法再加上密钥计算出一个签名，签名和用户数据一起生成一个token传回客户端，客户端保存token，服务端不保存，下次访问时，服务器收到请求，就会用相同的算法和密钥对数据再计算签名和token中的签名作比较，这样就不用了存储用户的登录记录了。</p>
+<p>cookie与session区别：<br>（1）保存地址不同：cookie保存在客户端，session保存在服务器<br>（2）存取数据类型不同：cookie保存ASCII码，session保存任意数据类型<br>（3）保存有效期不同：cookie可以设置长时间保存，而session失效时间短，客户端关闭或者session超时都会失效<br>（4）隐私策略不同：cookie存储在客户端，容易泄露，session保存在服务端，安全性好一点；<br>（5）存储大小不同：单个cookie保存数据大小不超过4kb，session可存储量要远大于cookie</p>
+<p>为什么需要cookie和session，关联？<br>因为http协议是无状态的，所以浏览器不知道是哪个用户在访问服务器，需要有一个机制来告诉服务器端，用户是否有登陆，是哪个用户登录，这个机制就需要cookie与session配合；</p>
+<p>如果禁止cookie怎么办？<br>答：（1）可以每次请求中携带一个sessionID的参数，可以通过post的方式提交，也可以在请求的地址后面拼接<br>（2）使用token</p>
+<p>session与token区别：<br>功能上是一样的，但实现方式不一样：</p>
+<h3 id="7-HTTP1-0、HTTP1-1、HTTP2-0的区别？"><a href="#7-HTTP1-0、HTTP1-1、HTTP2-0的区别？" class="headerlink" title="7.HTTP1.0、HTTP1.1、HTTP2.0的区别？"></a>7.HTTP1.0、HTTP1.1、HTTP2.0的区别？</h3><h3 id="8-HTTP状态码"><a href="#8-HTTP状态码" class="headerlink" title="8.HTTP状态码"></a>8.HTTP状态码</h3><h3 id="9-HTTP结构"><a href="#9-HTTP结构" class="headerlink" title="9.HTTP结构"></a>9.HTTP结构</h3><ol>
+<li>请求报文<br>客户端发送一个HTTP请求到服务端的格式：</li>
+</ol>
+<p>请求行：包含请求方法、URL、协议版本<br>请求头：包含头部键和值<br>请求体：请求数据</p>
+<ol>
+<li>响应报文</li>
+</ol>
+<p>服务端响应客户端格式：</p>
+<p>状态行：包含协议版本、状态码、状态码描述<br>响应头：头部键和值<br>响应体：响应数据</p>
+<h2 id="3-TCP协议"><a href="#3-TCP协议" class="headerlink" title="3.TCP协议"></a>3.TCP协议</h2><p><strong>TCP 是面向连接的、可靠的、基于字节流的传输层通信协议，它会保证数据不丢包、不乱序。</strong></p>
+<h3 id="1-三次握手"><a href="#1-三次握手" class="headerlink" title="1.三次握手"></a>1.三次握手</h3><p>为什么不是2次或者4次握手？<br>答：为什么不是2次：<br>（1）避免历史连接：如果是两次握手，不能判断当前连接是否是历史连接，因为网络环境错综复杂，有可能会发送多次连接请求，一个旧SYN报文可能会比新报文早到达服务端，如果是历史连接，通过第三次连接可以发送RST终止历史连接，否则可以发送ACK报文确认，成功建立连接；<br>（2）同步双方的初始序列号：TCP的通信双方都需要维护一个序列号，当客户端发送SYN报文后，服务端也需要返回ACK应答报文表示客户端的SYN报文被成功接收，那当服务端发送初始序列号时，也需要客户端的应答，一来一回才能确保双方初始序列号被可靠的同步；<br>（3）避免资源浪费：如果只有两次握手，假设客户端的SYN请求报文阻塞，导致客户端没有接收到ACK应答报文，就会重新发送SYN，由于没有第三次握手，服务端不知道客户端是否接收到了ACK，所以每收到一个SYN就只能先主动建立连接，导致建立多个无效连接，浪费资源；</p>
+<p>为什么不是4次：<br>三次握手理论上已经可以完成最少次数连接，不需要更多的通信次数。</p>
+<p>如果已经建立了连接，但是客户端突然出现故障了怎么办？</p>
+<h3 id="3-SYN攻击和防止策略"><a href="#3-SYN攻击和防止策略" class="headerlink" title="3.SYN攻击和防止策略"></a>3.SYN攻击和防止策略</h3><h3 id="4-四次挥手"><a href="#4-四次挥手" class="headerlink" title="4.四次挥手"></a>4.四次挥手</h3><ol>
+<li>为什么是4次挥手而不是3次？</li>
+<li>为什么需要TIME_WAIT状态？</li>
+<li>TIME_WAIT为什么是2MSL？</li>
+<li>TIME_WAIT过多的危害？</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="5-TCP怎么保证可靠性的？"><a href="#5-TCP怎么保证可靠性的？" class="headerlink" title="5.TCP怎么保证可靠性的？"></a>5.TCP怎么保证可靠性的？</h3><ul>
+<li>校验和</li>
+<li>序列号/确认应答</li>
+<li>超时重传</li>
+<li>流量控制</li>
+<li>拥塞控制</li>
+<li>连接管理</li>
+</ul>
+<ol>
+<li>校验和</li>
+</ol>
+<p>发送方在发送数据之前计算校验和，接收方收到数据后同样计算，如果不一致，那么传输有误。</p>
+<ol>
+<li>序列号/确认应答</li>
+</ol>
+<p>TCP进行传输时数据都进行了编号，每次接收方返回ACK都有确认序列号。</p>
+<ol>
+<li>超时重传</li>
+</ol>
+<p>TCP 快速重传、超时重传<br>超时重传：发送端在发送数据时设定一个定时器，当超过一定时间后，没有收到接收端传回的ACK确认应答报文，就会重发该数据，即“超时重传”；超时时间RTO略大于包往返时间RTT，若一直超时，则每次重传都会把下一次超时时间间隔设为原来的两倍。一旦出现两次以上超时，就说明网络环境差，不宜频繁重复发送。<br>快速重传：当收到三个相同的ACK报文时，会在定时器过期之前，重传丢失的报文段。缺点：只解决了超时时间的问题，但不能确定是重传之前的一个还是所有的数据<br>为了解决快速重传的问题，提出了SACK方法（必须双方都支持才能使用）：在TCP头部选项字段里加入SACK，可以将缓存的地图发送给发送方，使得发送方知道哪些数据收到，哪些数据没有收到，就可以只重传丢失的数据。<br>D-SACK：使用SACK来告诉发送方有哪些数据被重复接收了（三个好处：1.可以让发送方知道是发出去的包丢失还是返回的ACK报文丢失 2.知道是否发送方的数据包被网络延迟 3.知道网络中是否把发送方的数据包给复制了）</p>
+<ol>
+<li>流量控制</li>
+</ol>
+<p>滑动窗口：滑动窗口：窗口是缓存的一部分，用来暂时存放字节流。发送方和接收方各有一个窗口，接收方通过 TCP 报文段中的窗口字段告诉发送方自己的窗口大小，发送方根据这个值和其它信息设置自己的窗口大小。发送窗口内的字节都允许被发送，接收窗口内的字节都允许被接收。如果发送窗口左部的字节已经发送并且收到了确认，那么就将发送窗口向右滑动一定距离，直到左部第一个字节不是已发送并且已确认的状态；接收窗口的滑动类似，接收窗口左部字节已经发送确认并交付主机，就向右滑动接收窗口。</p>
+<p>累计确认：窗口发送过程中即使有确认报文丢失也没关系，可以通过下一个确认应答报文确认是否丢失。<br>窗口大小设置：Window字段存在于TCP头，是接收端告诉发送端自己还有多少缓冲区可以接收消息，发送端就根据接收端处理数据的能力来发送数据，即窗口大小通常由接收方决定。</p>
+<p>接收窗口和发送窗口的大小是相等的吗？答：并不是完全相等，接收窗口的大小是约等于发送窗口大小，因为滑动窗口大小不是一成不变的，例如接收方的应用进程读取数据的速度非常快的话，接收窗口就可以很快空缺出来，而新的接收窗口大小需要通过TCP报文中的Windows字段来告诉发送方，这个传输过程存在时延，所以是约等于。</p>
+<p>总结：流量控制-&gt;TCP使用滑动窗口实现流量控制，控制发送方发送速率，保证接收方来得及接收。接收方通过控制接收窗口大小来控制发送方窗口，从而影响发送方的发送速率。将窗口字段设置为0，则发送方不能发送数据。<br>窗口为0的风险：潜在的死锁-&gt;如果窗口关闭后，接收方处理完数据，向发送方发送的窗口非0的ACK报文在传输中丢失，那么双方会陷入一直等待的状态，造成死锁。</p>
+<p>解决方法：TCP为每个连接设置一个持续定时器，只要TCP连接一方收到对方的零窗口通知，就启动持续计时器，计时器一旦超时，就会发送窗口探测的报文，对方在确认到探测报文就会给出接收窗口的大小。如果窗口仍然为0，收到报文的一方就会重新启动持续计时器。</p>
+<ol>
+<li>拥塞控制</li>
+</ol>
+<p>经典的reno算法：<br>为了避免发送方的数据填满整个网络，发送方维护了一个拥塞窗口变量cwnd，根据网络拥塞程度动态变化。只要发生了超时重传，就认为网络出现了拥塞。另外，拥塞控制主要有四个算法：慢启动、拥塞避免、拥塞发生、快速恢复</p>
+<ol>
+<li>慢启动：TCP在刚建立连接后，会慢慢地一点一旦地提高发送数据包的数量，即发送方每收到一个ACK，cwnd就+1；</li>
+<li>拥塞避免算法：当cwnd超过慢启动门限ssthresh就会进入拥塞避免，即每收到一个ACK，cwnd+1/cwnd，延缓慢启动算法的增长速度（指数增长-&gt;线性增长）；</li>
+<li>拥塞发生算法：发生拥塞时，会进行数据重传，（1）超时重传的拥塞发生算法：ssthresh设为cwnd/2，cwnd重置为1，即重新开始慢启动（造成网络卡顿的原因）（2）快速重传的拥塞发生算法：TCP认为这种情况不严重，所以将cwnd = cwnd / 2，ssthresh = cwnd，进入快速恢复算法；</li>
+<li>快速恢复算法：一般快速恢复和快速重传一起使用，这时cwnd = ssthresh + 3（3是指有3个数据包被收到），重传丢失的数据包，如果再收到重复的ACK，那么cwnd+1，如果收到新数据的ACK后，设置cwnd为ssthresh，接着进入拥塞避免算法。</li>
+</ol>
+<p>16年谷歌提出了一种BBR算法</p>
+<p>流量控制与拥塞控制区别：<br>（1）流量控制是为了让接收方能来得及接收，而拥塞控制是为了降低整个网络的拥塞程度。<br>（2）流量控制是端到端的控制，两台主机进程间，A通过网络发送数据给B，A发送数据太快导致B没法接收，这时候就采用流量控制；而拥塞控制是A与B之间的网络发生堵塞导致传输过慢或者丢包采取的措施，是全局性的过程，涉及到网络中的主机、路由器等因素。</p>
+<ol>
+<li>连接管理</li>
+</ol>
+<p>三次握手和四次挥手的过程。</p>
+<h3 id="6-TCP与UDP的区别"><a href="#6-TCP与UDP的区别" class="headerlink" title="6.TCP与UDP的区别"></a>6.TCP与UDP的区别</h3><p>TCP和UDP的区别？</p>
+<ol>
+<li>可靠性：TCP是可靠传输，使用拥塞控制和流量控制；UDP不是可靠传输，不使用拥塞控制和流量控制；</li>
+<li>是否连接：TCP面向连接；UDP无连接；</li>
+<li>传输方式：TCP面向字节流；UDP面向报文</li>
+<li>连接对象个数：TCP只支持1对1连接；UDP支持1对多，多对1，多对多，1对1；</li>
+<li>头部开销：TCP头部20字节-60字节；UDP只要8字节；</li>
+<li>适用场景：TCP适用于文件传输；UDP适用于视频会议、直播、IP电话等</li>
+</ol>
+<h3 id="如何使用UDP实现可靠运输？"><a href="#如何使用UDP实现可靠运输？" class="headerlink" title="如何使用UDP实现可靠运输？"></a>如何使用UDP实现可靠运输？</h3><ol>
+<li>使用请求/应答机制：接收方每收到一个报文就回复确认包</li>
+<li>重传机制：发送方没有收到确认包就要重新发送</li>
+<li>序列号：每个包有递增的序号，接收方发现序号不对就知道有丢包，发送重传请求</li>
+<li>使用滑动窗口控制发送方发送速率，保证接收方来得及接收</li>
+</ol>
+<h3 id="针对-TCP-应该如何-Socket-编程"><a href="#针对-TCP-应该如何-Socket-编程" class="headerlink" title="针对 TCP 应该如何 Socket 编程"></a>针对 TCP 应该如何 Socket 编程</h3><p>答：服务端和客户端初始化 socket，得到文件描述符；</p>
+<p>1.服务端调用 bind，将Socket绑定在 IP 地址和端口;<br>2.服务端调用 listen，进行监听；<br>3.服务端调用 accept，等待客户端连接；<br>4.客户端调用 connect，向服务器端的地址和端口发起连接请求；<br>5.服务端 accept 返回用于传输的 socket 的文件描述符；<br>6.客户端调用 write 写入数据；服务端调用 read 读取数据；<br>7.客户端断开连接时，会调用 close，那么服务端 read 读取数据的时候，就会读取到了 EOF，待处理完数据后，服务端调用 close，表示连接关闭。</p>
+<ol>
+<li><p>listen 时候参数 backlog 的意义？</p>
+</li>
+<li><p>accept 发送在三次握手的哪一步？</p>
+</li>
+</ol>
+<ol>
+<li>客户端调用 close 了，连接是断开的流程是什么？</li>
+</ol>
+<h3 id="什么是粘包、拆包？"><a href="#什么是粘包、拆包？" class="headerlink" title="什么是粘包、拆包？"></a>什么是粘包、拆包？</h3><p>假设 Client 向 Server 连续发送了两个数据包，用 packet1 和 packet2 来表示，那么服务端收到的数据可以分为三种情况，现列举如下：<br>（1）第一种情况，接收端正常收到两个数据包，即没有发生拆包和粘包的现象。<br>（2）第二种情况，接收端只收到一个数据包，但是这一个数据包中包含了发送端发送的两个数据包的信息，这种现象即为粘包。这种情况由于接收端不知道这两个数据包的界限，所以对于接收端来说很难处理。<br>（3）第三种情况，这种情况有两种表现形式，如下图。接收端收到了两个数据包，但是这两个数据包要么是不完整的，要么就是多出来一块，这种情况即发生了拆包和粘包。这两种情况如果不加特殊处理，对于接收端同样是不好处理的。</p>
+<p>为什么常说 TCP 有粘包和拆包的问题而不说 UDP ？<br>答：UDP 是基于报文发送的，UDP首部采用了 16bit 来指示 UDP 数据报文的长度，因此在应用层能很好的将不同的数据报文区分开，从而避免粘包和拆包的问题。<br>而 TCP 是基于字节流的，虽然应用层和 TCP 传输层之间的数据交互是大小不等的数据块，但是 TCP 并没有把这些数据块区分边界，仅仅是一连串没有结构的字节流；另外从 TCP 的帧结构也可以看出，在 TCP 的首部没有表示数据长度的字段，基于上面两点，在使用 TCP 传输数据时，才有粘包或者拆包现象发生的可能。</p>
+<p>粘包、拆包解决办法<br>由于 TCP 本身是面向字节流的，无法理解上层的业务数据，所以在底层是无法保证数据包不被拆分和重组的，这个问题只能通过上层的应用协议栈设计来解决，根据业界的主流协议的解决方案，归纳如下：<br>消息定长：发送端将每个数据包封装为固定长度（不够的可以通过补 0 填充），这样接收端每次接收缓冲区中读取固定长度的数据就自然而然的把每个数据包拆分开来。<br>设置消息边界：服务端从网络流中按消息边界分离出消息内容。在包尾增加回车换行符进行分割，例如 FTP 协议。<br>将消息分为消息头和消息体：消息头中包含表示消息总长度（或者消息体长度）的字段。更复杂的应用层协议比如 Netty 中实现的一些协议都对粘包、拆包做了很好的处理。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">面试 计算机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1392,7 +1529,7 @@ else&#123;
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 HuangXun
+    		&copy; 2022 HuangXun
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
