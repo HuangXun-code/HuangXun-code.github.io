@@ -16,7 +16,7 @@
 <meta property="og:description" content="线程与协程的区别java中，线程的创建需要向操作系统请求，调用操作系统功能来创建线程，创建、切换、停止线程都是重量级的系统操作，非常消耗资源。 协程的创建并不需要调用操作系统功能，编程语言层面即可完成，所以协程也被称为用户态线程。另外，协程可以跑在主线程上，一个线程可以创建多个协程。 协程被设计的目的，是为了并发。相对于线程而言，线程在多核环境下是可以做到并行。在一些业务场景下，使用并发的协程要比">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-18T07:43:34.000Z">
-<meta property="article:modified_time" content="2022-03-18T07:46:02.033Z">
+<meta property="article:modified_time" content="2022-03-18T11:32:57.914Z">
 <meta property="article:author" content="HuangXun">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -187,9 +187,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="线程与协程的区别"><a href="#线程与协程的区别" class="headerlink" title="线程与协程的区别"></a>线程与协程的区别</h2><p>java中，线程的创建需要向操作系统请求，调用操作系统功能来创建线程，创建、切换、停止线程都是重量级的系统操作，非常消耗资源。</p>
-<p>协程的创建并不需要调用操作系统功能，编程语言层面即可完成，所以协程也被称为用户态线程。另外，协程可以跑在主线程上，一个线程可以创建多个协程。</p>
-<p>协程被设计的目的，是为了并发。相对于线程而言，线程在多核环境下是可以做到并行。在一些业务场景下，使用并发的协程要比并行的线程节省更多的系统资源，但消耗时间并没有多多少，所以选用协程。</p>
+        <h2 id="线程与协程的区别"><a href="#线程与协程的区别" class="headerlink" title="线程与协程的区别"></a>线程与协程的区别</h2><p>java中，<strong>线程</strong>的创建需要向操作系统请求，调用操作系统功能来创建线程，创建、切换、停止线程都是重量级的系统操作，非常消耗资源。</p>
+<p><strong>协程</strong>的创建并不需要调用操作系统功能，编程语言层面即可完成，所以协程也被称为用户态线程。另外，协程可以跑在主线程上，一个线程可以创建多个协程。</p>
+<p><strong>协程</strong>被设计的目的，是为了并发。相对于线程而言，<strong>线程</strong>在多核环境下是可以做到并行。在一些业务场景下，使用并发的协程要比并行的线程节省更多的系统资源，但消耗时间并没有多多少，所以选用协程。</p>
 
       
 
